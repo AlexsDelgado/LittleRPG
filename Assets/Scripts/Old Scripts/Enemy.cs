@@ -10,30 +10,22 @@ public class Enemy : MonoBehaviour
     [SerializeField] float initialSpeed = 5.0f;
     Vector3 direction = new Vector3(1, 0, 0);
     
-
-
     bool right = true;
     float currentTime;
     public GameObject target;
-
-
+    
     public float chaseDist;
     public float stopDist;
     private float targetDist;
 
-
-
     public UnityEvent hitPlayer = new UnityEvent();
-
-
+    
     void Start()
     {
         GameManager.Instance.AddEnemy(this);
         GameManager.Instance.agregarEnemigo.Invoke();
-        
     }
-
-
+    
     void Update()
     {
 
