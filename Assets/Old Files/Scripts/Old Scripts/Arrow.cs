@@ -16,7 +16,7 @@ public class Arrow : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.useArrow();
+        //GameManager.Instance.useArrow();
     }
 
     public void SetDirection(Vector3 p_direction, int arrowDirection)
