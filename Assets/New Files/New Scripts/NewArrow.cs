@@ -29,7 +29,6 @@ public class NewArrow : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 180);
                 break;
             case 3:
-               
                 transform.rotation = Quaternion.Euler(0, 0, -90);
                 break;
             case 4:

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abd82fd7b3c1eeb44b87849be4607374, type: 3}
-  m_Name: Player
+  m_Name: Bat
   m_EditorClassIdentifier: 
-  isPlayer: 1
-  canFly: 0
-  unitName: Player1
+  isPlayer: 0
+  canFly: 1
+  unitName: Bat
   unitLevel: 1
-  MaxHP: 3
-  HP: 3
+  MaxHP: 2
+  HP: 2
   DEF: 0
-  STR: 2
-  SPD: 5
+  STR: 1
+  SPD: 7
