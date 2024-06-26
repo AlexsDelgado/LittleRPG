@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class NewHero : MonoBehaviour
+public class NewHero : Unit
 {
-
-    private UnitStat UNIT;
-    private int MaxHP;
-    private int HP;
-    private int STR;
-    private int DEF;
-    public NewMovement movimiento;
-    public Animator animator;
-    public GameObject arrowPrefab;
+    [SerializeField] private  UnitStat UNIT;
+    private NewMovement movimiento;
+    [SerializeField] private GameObject arrowPrefab;
     private Vector3 direction;
     private int arrowDirection;
     private float arrowCooldown=0;
@@ -40,6 +34,7 @@ public class NewHero : MonoBehaviour
     {
         movimiento = GetComponent<NewMovement>();
         animator = GetComponent<Animator>();
+        LoadStats();
     }
     
 
@@ -47,8 +42,17 @@ public class NewHero : MonoBehaviour
     void Update()
     {
         arrowCooldown += Time.deltaTime;
+       
         if (arrowCooldown>=attackSpeed)
         {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Hurt();
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Debug.Log(HP);
+            }
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Debug.Log("attack melee");
@@ -102,5 +106,22 @@ public class NewHero : MonoBehaviour
     {
         GameObject arrow = Instantiate(arrowPrefab, transform.position + direction, transform.rotation);
         arrow.GetComponent<NewArrow>().SetDirection(direction, arrowDirection); 
+    }
+
+    public override void Death()
+    {
+        Destroy(gameObject);
+        Debug.Log("muerte jugador");
+    }
+
+    public override void Hurt()
+    {
+        Debug.Log("hp-1");
+        HP--;
+        Debug.Log("vida actual : "+HP);
+        if (HP <= 0)
+        {
+            Death();
+        }
     }
 }

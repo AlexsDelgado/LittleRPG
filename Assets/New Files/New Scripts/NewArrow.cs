@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class NewArrow : MonoBehaviour
@@ -9,9 +12,10 @@ public class NewArrow : MonoBehaviour
     [SerializeField] private float m_speed;
     private Vector3 m_direction;
     [SerializeField] private float lifeTime = 2f;
+    private Unit typeEnemy;
     private float m_currentTime;
-    public LayerMask objetivo;
-    public UnityEvent arrow = new UnityEvent();
+    //public LayerMask objetivo;
+    //public UnityEvent arrow = new UnityEvent();
 
     public void SetDirection(Vector3 p_direction, int arrowDirection)
     {
@@ -45,19 +49,27 @@ public class NewArrow : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.GetType() == typeof(Enemy)) ;
+        //GameObject aux = collision.gameObject.
+        typeEnemy = collision.gameObject.GetComponent<NewEnemyGround>();
+        if (typeEnemy is NewEnemyGround)
         {
-            Debug.Log("choco enemigo");
-            // Destroy(collision.gameObject);
-            // GameManager.Instance.MinusEnemy();
+            Debug.Log("type enemy is");
             Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
-        if(collision.gameObject.layer == 9)
-        {
-            //GameManager.Instance.BossDmg();
-            Destroy(gameObject);
-          
-        }
+        // if (collision.gameObject.GetType() == typeof(NewEnemyGround))
+        // {
+        //     Debug.Log("choco enemigo");
+        //     // Destroy(collision.gameObject);
+        //     // GameManager.Instance.MinusEnemy();
+        //     Destroy(gameObject);
+        // }
+        // if(collision.gameObject.layer == 9)
+        // {
+        //     //GameManager.Instance.BossDmg();
+        //     Destroy(gameObject);
+        //   
+        // }
     }
 }
 

@@ -61,17 +61,17 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 8)
-        {
-            Destroy(collision.gameObject);
-            GameManager.Instance.MinusEnemy();
-            Destroy(gameObject);
-        }
-        if(collision.gameObject.layer == 9)
-        {
-            GameManager.Instance.BossDmg();
-            Destroy(gameObject);
-          
-        }
+        // if (collision.gameObject.layer == 8)
+        // {
+        //     Destroy(collision.gameObject);
+        //     //GameManager.Instance.MinusEnemy();
+        //     Destroy(gameObject);
+        // }
+        // if(collision.gameObject.layer == 9)
+        // {
+        //     GameManager.Instance.BossDmg();
+        //     Destroy(gameObject);
+        //   
+        // }
     }
 }
