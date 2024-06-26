@@ -16,8 +16,15 @@ public class NewHero : Unit
     [SerializeField] private float hitRadio;
     [SerializeField] private Transform hitController;
     private Unit typeEnemy;
+    private IHealthCanvasProvider _healthCanvasProvider;
     
-    public static event Action<int> updateHealth;
+    void Start()
+    {
+        _healthCanvasProvider = MainCanvas.Instance;
+        movimiento = GetComponent<NewMovement>();
+        animator = GetComponent<Animator>();
+        LoadStats();
+    }
     
     //scritableObject stats
     public void LoadStats()
@@ -27,23 +34,13 @@ public class NewHero : Unit
         STR = UNIT.STR;
         DEF = UNIT.DEF;
         movimiento.speed = UNIT.SPD;
-
     }
 
-    public void ChangeAttackSpeed(float change)
+    /*public void ChangeAttackSpeed(float change)
     {
         attackSpeed = attackSpeed - change;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        movimiento = GetComponent<NewMovement>();
-        animator = GetComponent<Animator>();
-        LoadStats();
-    }
+    }*/
     
-
-    // Update is called once per frame
     void Update()
     {
         arrowCooldown += Time.deltaTime;
@@ -147,7 +144,7 @@ public class NewHero : Unit
         Debug.Log("hp-1");
         HP=HP-dmg;
         Debug.Log("vida actual : "+HP);
-        updateHealth?.Invoke(HP);
+        _healthCanvasProvider.HealthCanvas.UpdateHealth(HP);
         animator.SetTrigger("hurt");
         if (HP <= 0)
         {
@@ -165,13 +162,22 @@ public class NewHero : Unit
         // Gizmos.DrawWireCube(hitController.position, new Vector3(hitRadio, 1, 1));
     }
     
-    public  void Heal(int HPToHeal)
+    public void Heal(int HPToHeal)
     {
         HP += HPToHeal;
         if (HP > MaxHP)
         {
             HP = MaxHP;
         }
-        updateHealth?.Invoke(HP);
+        _healthCanvasProvider.HealthCanvas.UpdateHealth(HP);
+    }
+
+    public void Buff(int _STR, int _DEF, int _SPD, float _AS)
+    {
+        STR += _STR;
+        DEF += _DEF;
+        movimiento.speed += _SPD;
+        attackSpeed -= _AS;
+        
     }
 }

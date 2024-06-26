@@ -178,26 +178,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1801946652442936868, guid: ff55fcb1418df5c4e85f93c800db9519, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2723664804128276897, guid: ff55fcb1418df5c4e85f93c800db9519, type: 3}
-      propertyPath: UNIT
-      value: 
-      objectReference: {fileID: 11400000, guid: 7da090fce1607f64cbad70d80038fd93, type: 2}
-    - target: {fileID: 2723664804128276897, guid: ff55fcb1418df5c4e85f93c800db9519, type: 3}
-      propertyPath: hitRadio
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2723664804128276897, guid: ff55fcb1418df5c4e85f93c800db9519, type: 3}
-      propertyPath: arrowPrefab
-      value: 
-      objectReference: {fileID: 7512811211480117066, guid: eabb4680fd73ca94b8da4e4e7ab50a4f, type: 3}
-    - target: {fileID: 2723664804128276897, guid: ff55fcb1418df5c4e85f93c800db9519, type: 3}
-      propertyPath: hitController
-      value: 
-      objectReference: {fileID: 1582856516}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff55fcb1418df5c4e85f93c800db9519, type: 3}
 --- !u!1 &455290560
@@ -323,80 +303,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1801946652442936868, guid: ff55fcb1418df5c4e85f93c800db9519, type: 3}
   m_PrefabInstance: {fileID: 424588165}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &982394084
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982394077}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!4 &982394090 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1801946652442936866, guid: ff55fcb1418df5c4e85f93c800db9519, type: 3}
-  m_PrefabInstance: {fileID: 424588165}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1582856515
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1582856516}
-  - component: {fileID: 1582856517}
-  m_Layer: 0
-  m_Name: MeleeAttack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1582856516
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582856515}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 982394090}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1582856517
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582856515}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1
 --- !u!1001 &522707394955647935
 PrefabInstance:
   m_ObjectHideFlags: 0
