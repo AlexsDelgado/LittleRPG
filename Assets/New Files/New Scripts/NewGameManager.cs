@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class NewGameManager : MonoBehaviour
 {
@@ -11,7 +13,10 @@ public class NewGameManager : MonoBehaviour
     public static NewGameManager Instance;
     private int coins;
     private ICoinsCanvasProvider _coinsCanvasProvider;
-    public UnityEvent nextLevel = new UnityEvent();
+    public UnityEvent menu = new UnityEvent();
+    public UnityEvent lose = new UnityEvent();
+    public UnityEvent win = new UnityEvent();
+    public UnityEvent cave = new UnityEvent();
 
     private void Start()
     {
@@ -41,12 +46,14 @@ public class NewGameManager : MonoBehaviour
     {
         NewCoin.onPickupCoin += addCoins;
         BuyableBuff.onBuyItem += subtractCoins;
+        NewObstacle.onBuyItem += subtractCoins;
     }
 
     private void OnDisable()
     {
         NewCoin.onPickupCoin -= addCoins;
         BuyableBuff.onBuyItem -= subtractCoins;
+        NewObstacle.onBuyItem -= subtractCoins;
     }
 
     private void addCoins(int value)
@@ -60,6 +67,17 @@ public class NewGameManager : MonoBehaviour
         coins -= value;
         _coinsCanvasProvider.CoinsCanvas.UpdateCoins(coins);
     }
-    
-    
+
+    public void LoadCave()
+    {
+        cave.Invoke();
+    }
+
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.O))
+    //     {
+    //         nextLevel.Invoke();
+    //     }
+    // }
 }

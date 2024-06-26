@@ -12,31 +12,37 @@ public class Scenes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.win.AddListener(Ganar);
-        GameManager.Instance.lose.AddListener(Perder);
-        GameManager.Instance.menu.AddListener(Menu);
+        NewGameManager.Instance.win.AddListener(Ganar);
+        NewGameManager.Instance.lose.AddListener(Perder);
+        NewGameManager.Instance.menu.AddListener(Menu);
+        NewGameManager.Instance.cave.AddListener(LoadCave);
     }
 
     public void Ganar()
     {
-        SceneManager.LoadScene("Win");
+        SceneManager.LoadScene("NewWin");
     }
 
     public void Perder()
     {
-        SceneManager.LoadScene("Defeat");
+        SceneManager.LoadScene("NewDefeat");
     }
 
     public void Menu()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("NewMainMenu");
         //GameManager.Instance.resetGame();
 
 }
 
     public void Play()
     {
-        SceneManager.LoadScene("Outworld");
+        SceneManager.LoadScene("NewOutworld");
+
+    }
+    public void LoadCave()
+    {
+        SceneManager.LoadScene("NewCave");
 
     }
 

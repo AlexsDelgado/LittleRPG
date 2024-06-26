@@ -19,10 +19,12 @@ public class Cavelevel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.gameObject.layer == 3)
         {
+            NewGameManager.Instance.LoadCave();
             caveScene();
-
+        
         }
 
     }
@@ -30,6 +32,6 @@ public class Cavelevel : MonoBehaviour
 
     void caveScene()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("NewCave");
     }
 }

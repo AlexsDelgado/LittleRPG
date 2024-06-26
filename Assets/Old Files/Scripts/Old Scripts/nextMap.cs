@@ -2,21 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class nextMap : MonoBehaviour
+public class nextMap : MonoBehaviour, IPickupeable
 {
 
     public GameObject[] obstaculos;
     // Start is called before the first frame update
     void Start()
     {
-        NewGameManager.Instance.nextLevel.AddListener(openNextLevel);
+        //NewGameManager.Instance.nextLevel.AddListener(openNextLevel);
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void openNextLevel()
     {
@@ -26,5 +22,10 @@ public class nextMap : MonoBehaviour
         }
         gameObject.SetActive(false);
        
+    }
+
+    public void OnPickup()
+    {
+        throw new System.NotImplementedException();
     }
 }
