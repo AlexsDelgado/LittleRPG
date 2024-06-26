@@ -58,11 +58,13 @@ public class NewEnemyGround : Unit
 
     public override void Hurt(int dmg)
     {
-        HP = HP - dmg;
-        Debug.Log("Pego " + HP);
+        
+        int dmgFinal = calculateDamage(dmg);
+        HP = HP - dmgFinal;
         if (HP <= 0)
         {
             Destroy(gameObject);
+            //drop();
         }
     }
     
@@ -73,6 +75,7 @@ public class NewEnemyGround : Unit
         if (typeEnemy is NewHero)
         {
             Debug.Log("is enemy");
+            
             typeEnemy.Hurt(STR);
         }
         // if (collision.gameObject.GetType() == typeof(NewEnemyGround))

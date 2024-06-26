@@ -13,4 +13,18 @@ public class Unit : MonoBehaviour
 
     public virtual void Death() {}
     public virtual void Hurt(int dmg) {}
+
+    public int calculateDamage(int dmg)
+    {
+        Debug.Log("Pego desde unit base " + dmg);
+        int damageFinal = dmg - DEF;
+        if (damageFinal> 0)
+        {
+            return damageFinal;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }

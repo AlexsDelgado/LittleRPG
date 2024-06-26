@@ -140,15 +140,16 @@ public class NewHero : Unit
 
     public override void Hurt(int dmg)
     {
-        Debug.Log("hp-1");
-        HP=HP-dmg;
+        int dmgFinal = calculateDamage(dmg);
+        HP = HP - dmgFinal;
+        Debug.Log("dmg final: "+dmgFinal);
         Debug.Log("vida actual : "+HP);
         _healthCanvasProvider.HealthCanvas.UpdateHealth(HP, MaxHP);
         animator.SetTrigger("hurt");
         if (HP <= 0)
         {
             Death();
-        }
+        } 
     }
     
     private void OnDrawGizmos()

@@ -16,8 +16,8 @@ MonoBehaviour:
   canFly: 0
   unitName: Player1
   unitLevel: 1
-  MaxHP: 3
-  HP: 3
-  DEF: 0
+  MaxHP: 6
+  HP: 6
+  DEF: 1
   STR: 2
   SPD: 5

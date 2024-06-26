@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NewGameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class NewGameManager : MonoBehaviour
     public static NewGameManager Instance;
     private int coins;
     private ICoinsCanvasProvider _coinsCanvasProvider;
+    public UnityEvent nextLevel = new UnityEvent();
 
     private void Start()
     {
@@ -58,4 +60,6 @@ public class NewGameManager : MonoBehaviour
         coins -= value;
         _coinsCanvasProvider.CoinsCanvas.UpdateCoins(coins);
     }
+    
+    
 }
