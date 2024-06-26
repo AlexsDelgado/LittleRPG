@@ -17,6 +17,7 @@ public class NewEnemyGround : Unit
     public float stopDist;
     public bool chase = false;
     private float targetDist;
+    private Unit typeEnemy;
     
     public void LoadStats()
     {
@@ -64,4 +65,29 @@ public class NewEnemyGround : Unit
             Destroy(gameObject);
         }
     }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //GameObject aux = collision.gameObject.
+        typeEnemy = collision.gameObject.GetComponent<NewHero>();
+        if (typeEnemy is NewHero)
+        {
+            Debug.Log("is enemy");
+            typeEnemy.Hurt(STR);
+        }
+        // if (collision.gameObject.GetType() == typeof(NewEnemyGround))
+        // {
+        //     Debug.Log("choco enemigo");
+        //     // Destroy(collision.gameObject);
+        //     // GameManager.Instance.MinusEnemy();
+        //     Destroy(gameObject);
+        // }
+        // if(collision.gameObject.layer == 9)
+        // {
+        //     //GameManager.Instance.BossDmg();
+        //     Destroy(gameObject);
+        //   
+        // }
+    }
+    
 }

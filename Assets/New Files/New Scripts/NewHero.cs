@@ -47,14 +47,19 @@ public class NewHero : Unit
     void Update()
     {
         arrowCooldown += Time.deltaTime;
-       
+        
+        
         if (arrowCooldown>=attackSpeed)
         {
-
+            
+            
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //Punch();
                 Debug.Log("melee attack");
+                animator.SetTrigger("melee");
+                arrowCooldown = 0;
+                
                 Collider2D[] meleeAttack = Physics2D.OverlapCircleAll(hitController.position, hitRadio);
                 foreach (Collider2D collider in meleeAttack)
                 {
@@ -63,10 +68,12 @@ public class NewHero : Unit
                     {
                         Debug.Log("Bat");
                         typeEnemy.Hurt(STR);
-                        animator.SetTrigger("melee");
                     }
                 }
             }
+            
+
+           
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 
@@ -141,6 +148,7 @@ public class NewHero : Unit
         HP=HP-dmg;
         Debug.Log("vida actual : "+HP);
         updateHealth?.Invoke(HP);
+        animator.SetTrigger("hurt");
         if (HP <= 0)
         {
             Death();

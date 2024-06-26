@@ -563,6 +563,6 @@ MonoBehaviour:
   UNIT: {fileID: 11400000, guid: e123556aed0cf7a4d91fa163016a5e68, type: 2}
   patrolTime: 2
   right: 0
-  chaseDist: 0
-  stopDist: 0
+  chaseDist: 3
+  stopDist: 5
   chase: 0
