@@ -17,13 +17,16 @@ public class NewHero : Unit
     [SerializeField] private Transform hitController;
     private Unit typeEnemy;
     private IHealthCanvasProvider _healthCanvasProvider;
+    private IStatsCanvasProvider _statsCanvasProvider;
     
     void Start()
     {
         _healthCanvasProvider = MainCanvas.Instance;
+        _statsCanvasProvider = MainCanvas.Instance;
         movimiento = GetComponent<NewMovement>();
         animator = GetComponent<Animator>();
         LoadStats();
+        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.speed, attackSpeed);
     }
     
     //scritableObject stats
@@ -178,6 +181,6 @@ public class NewHero : Unit
         DEF += _DEF;
         movimiento.speed += _SPD;
         attackSpeed -= _AS;
-        
+        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.speed, attackSpeed);
     }
 }

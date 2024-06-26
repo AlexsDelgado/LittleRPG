@@ -50,6 +50,13 @@ public class StatsCanvas : MonoBehaviour
                 timer = 0;
             }
         }
-        
+    }
+
+    public void UpdateStats(int newStr, int newDef, int newSpd, float newAs)
+    {
+        STR_text.text = newStr.ToString();
+        DEF_text.text = newDef.ToString();
+        SPD_text.text = newSpd.ToString();
+        AS_text.text = newAs.ToString();
     }
 }
