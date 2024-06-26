@@ -118,5 +118,5 @@ MonoBehaviour:
   STRBuff: 0
   DEFBuff: 0
   SPDBuff: 1
-  attackSpeedBuff: -2
+  attackSpeedBuff: 0.5
   potionSound: {fileID: 8300000, guid: 8d61ebaf006f50441b3ce4a06e219623, type: 3}
