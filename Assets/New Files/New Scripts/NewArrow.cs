@@ -54,7 +54,7 @@ public class NewArrow : MonoBehaviour
         {
             Debug.Log("type enemy is");
             Destroy(gameObject);
-            Destroy(collision.gameObject);
+            typeEnemy.Hurt(1);
         }
         // if (collision.gameObject.GetType() == typeof(NewEnemyGround))
         // {

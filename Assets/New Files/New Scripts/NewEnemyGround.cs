@@ -54,4 +54,14 @@ public class NewEnemyGround : Unit
     {
         target = newTarget;
     }
+
+    public override void Hurt(int dmg)
+    {
+        HP = HP - dmg;
+        Debug.Log("Pego " + HP);
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

@@ -12,6 +12,10 @@ public class NewHero : Unit
     private int arrowDirection;
     private float arrowCooldown=0;
     private float attackSpeed = 1.5f;
+    [SerializeField] private float hitRadio;
+    [SerializeField] private Transform hitController;
+    private Unit typeEnemy;
+    
     
     
     //scritableObject stats
@@ -45,12 +49,28 @@ public class NewHero : Unit
        
         if (arrowCooldown>=attackSpeed)
         {
+
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Hurt();
+                //Punch();
+                Debug.Log("melee attack");
+                Collider2D[] meleeAttack = Physics2D.OverlapCircleAll(hitController.position, hitRadio);
+                foreach (Collider2D collider in meleeAttack)
+                {
+                    typeEnemy = collider.gameObject.GetComponent<NewEnemyGround>();
+                    if (typeEnemy is NewEnemyGround)
+                    {
+                        Debug.Log("Bat");
+                        typeEnemy.Hurt(STR);
+                        animator.SetTrigger("melee");
+                    }
+                }
             }
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                
+                Debug.Log(HP);
+                Hurt(1);
                 Debug.Log(HP);
             }
             if (Input.GetKeyDown(KeyCode.Space))
@@ -114,14 +134,24 @@ public class NewHero : Unit
         Debug.Log("muerte jugador");
     }
 
-    public override void Hurt()
+    public override void Hurt(int dmg)
     {
         Debug.Log("hp-1");
-        HP--;
+        HP=HP-dmg;
         Debug.Log("vida actual : "+HP);
         if (HP <= 0)
         {
             Death();
         }
+    }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(hitController.position, hitRadio);
+        //Gizmos.color = Color.yellow;
+        //Gizmos.DrawWireCube(hitController.position, new Vector3(hitRadio, 1, 1));
+        // Gizmos.color = Color.cyan;
+        // Gizmos.DrawWireCube(hitController.position, new Vector3(hitRadio, 1, 1));
     }
 }

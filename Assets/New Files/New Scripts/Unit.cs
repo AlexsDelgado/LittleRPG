@@ -12,5 +12,5 @@ public class Unit : MonoBehaviour
     protected Animator animator;
 
     public virtual void Death() {}
-    public virtual void Hurt() {}
+    public virtual void Hurt(int dmg) {}
 }
