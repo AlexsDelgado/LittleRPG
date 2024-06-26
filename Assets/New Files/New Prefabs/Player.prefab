@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1801946652442936893}
   - component: {fileID: 2723664804128276896}
   - component: {fileID: 2723664804128276897}
-  m_Layer: 0
+  - component: {fileID: 982394084}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,5 +154,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b0bb2be3ac8d6458dc2a6b3f33284f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movimiento: {fileID: 0}
-  animator: {fileID: 0}
+  UNIT: {fileID: 11400000, guid: 7da090fce1607f64cbad70d80038fd93, type: 2}
+  arrowPrefab: {fileID: 7512811211480117066, guid: eabb4680fd73ca94b8da4e4e7ab50a4f, type: 3}
+--- !u!50 &982394084
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801946652442936868}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

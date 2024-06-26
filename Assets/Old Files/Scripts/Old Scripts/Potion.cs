@@ -9,6 +9,7 @@ public class Potion : MonoBehaviour
     [SerializeField] private AudioClip m_potionAudio;
     public HUD UI;
     public int Price;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,6 @@ public class Potion : MonoBehaviour
             Hero player = collision.gameObject.GetComponent<Hero>();
             if (player)
             {
-
                 if (GameManager.Instance.m_coins>=Price)
                 {
                     UI.heal();
@@ -44,12 +44,9 @@ public class Potion : MonoBehaviour
                 else
                 {
                     Debug.Log("no hay monedas suficientes");
-                 
                 }
                
             }
         }
     }
-
-
 }

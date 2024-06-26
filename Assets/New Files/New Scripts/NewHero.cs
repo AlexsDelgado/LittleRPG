@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class NewHero : Unit
     [SerializeField] private Transform hitController;
     private Unit typeEnemy;
     
-    
+    public static event Action<int> updateHealth;
     
     //scritableObject stats
     public void LoadStats()
@@ -139,6 +140,7 @@ public class NewHero : Unit
         Debug.Log("hp-1");
         HP=HP-dmg;
         Debug.Log("vida actual : "+HP);
+        updateHealth?.Invoke(HP);
         if (HP <= 0)
         {
             Death();
@@ -153,5 +155,15 @@ public class NewHero : Unit
         //Gizmos.DrawWireCube(hitController.position, new Vector3(hitRadio, 1, 1));
         // Gizmos.color = Color.cyan;
         // Gizmos.DrawWireCube(hitController.position, new Vector3(hitRadio, 1, 1));
+    }
+    
+    public  void Heal(int HPToHeal)
+    {
+        HP += HPToHeal;
+        if (HP > MaxHP)
+        {
+            HP = MaxHP;
+        }
+        updateHealth?.Invoke(HP);
     }
 }
