@@ -51,8 +51,6 @@ public class NewHero : Unit
         
         if (arrowCooldown>=attackSpeed)
         {
-            
-            
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //Punch();
@@ -72,8 +70,6 @@ public class NewHero : Unit
                 }
             }
             
-
-           
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 
@@ -81,11 +77,11 @@ public class NewHero : Unit
                 Hurt(1);
                 Debug.Log(HP);
             }
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Debug.Log("attack melee");
             }
-        
         
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
@@ -144,15 +140,16 @@ public class NewHero : Unit
 
     public override void Hurt(int dmg)
     {
-        Debug.Log("hp-1");
-        HP=HP-dmg;
+        int dmgFinal = calculateDamage(dmg);
+        HP = HP - dmgFinal;
+        Debug.Log("dmg final: "+dmgFinal);
         Debug.Log("vida actual : "+HP);
-        _healthCanvasProvider.HealthCanvas.UpdateHealth(HP);
+        _healthCanvasProvider.HealthCanvas.UpdateHealth(HP, MaxHP);
         animator.SetTrigger("hurt");
         if (HP <= 0)
         {
             Death();
-        }
+        } 
     }
     
     private void OnDrawGizmos()
@@ -172,7 +169,7 @@ public class NewHero : Unit
         {
             HP = MaxHP;
         }
-        _healthCanvasProvider.HealthCanvas.UpdateHealth(HP);
+        _healthCanvasProvider.HealthCanvas.UpdateHealth(HP, MaxHP);
     }
 
     public void Buff(int _STR, int _DEF, int _SPD, float _AS)

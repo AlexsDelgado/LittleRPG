@@ -9,7 +9,7 @@ public class nextMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.nextLevel.AddListener(openNextLevel);
+        NewGameManager.Instance.nextLevel.AddListener(openNextLevel);
     }
 
     // Update is called once per frame
