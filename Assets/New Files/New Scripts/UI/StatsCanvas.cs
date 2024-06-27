@@ -33,7 +33,6 @@ public class StatsCanvas : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            Debug.Log("tab");
             Panel.SetActive(!Panel.activeInHierarchy);
             if (Panel.activeInHierarchy)
             {

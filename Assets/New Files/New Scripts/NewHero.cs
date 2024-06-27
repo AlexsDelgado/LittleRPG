@@ -77,11 +77,6 @@ public class NewHero : Unit
                 Hurt(1);
                 Debug.Log(HP);
             }
-            
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log("attack melee");
-            }
         
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {

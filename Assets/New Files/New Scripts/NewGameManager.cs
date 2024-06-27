@@ -9,7 +9,8 @@ using UnityEngine.UIElements;
 
 public class NewGameManager : MonoBehaviour
 {
-    
+    [SerializeField] bool questAccepted;
+    [SerializeField] bool questCompleted;
     public static NewGameManager Instance;
     private int coins;
     private ICoinsCanvasProvider _coinsCanvasProvider;
@@ -18,10 +19,22 @@ public class NewGameManager : MonoBehaviour
     public UnityEvent win = new UnityEvent();
     public UnityEvent cave = new UnityEvent();
 
+    public UnityEvent nextLevel = new UnityEvent();
+    private int killedEnemies;
+    
     private void Start()
     {
         _coinsCanvasProvider = MainCanvas.Instance;
         _coinsCanvasProvider.CoinsCanvas.UpdateCoins(coins);
+    }
+
+    private void Update()
+    {
+        if (questAccepted && killedEnemies >= 10 &&!questCompleted)
+        {
+            addCoins(20);
+            questCompleted = true;
+        }
     }
 
     public int Coins
@@ -47,6 +60,9 @@ public class NewGameManager : MonoBehaviour
         NewCoin.onPickupCoin += addCoins;
         BuyableBuff.onBuyItem += subtractCoins;
         NewObstacle.onBuyItem += subtractCoins;
+
+        Quest.onPickupQuest += EnableQuest;
+        NewEnemyGround.onEnemyKilled += EnemyKilled;
     }
 
     private void OnDisable()
@@ -54,6 +70,8 @@ public class NewGameManager : MonoBehaviour
         NewCoin.onPickupCoin -= addCoins;
         BuyableBuff.onBuyItem -= subtractCoins;
         NewObstacle.onBuyItem -= subtractCoins;
+        Quest.onPickupQuest -= EnableQuest;
+        NewEnemyGround.onEnemyKilled -= EnemyKilled;
     }
 
     private void addCoins(int value)
@@ -80,4 +98,13 @@ public class NewGameManager : MonoBehaviour
     //         nextLevel.Invoke();
     //     }
     // }
+    private void EnableQuest()
+    {
+        questAccepted = true;
+    }
+
+    public void EnemyKilled()
+    {
+        killedEnemies++;
+    }
 }

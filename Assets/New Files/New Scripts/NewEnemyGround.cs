@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 public class NewEnemyGround : Unit
 {
@@ -18,6 +20,12 @@ public class NewEnemyGround : Unit
     public bool chase = false;
     private float targetDist;
     private Unit typeEnemy;
+    
+    public static event Action onEnemyKilled;
+
+    [SerializeField] private GameObject CoinDrop;
+    [SerializeField] private GameObject SmallHealthDrop;
+    [SerializeField] private GameObject MediumHealthDrop;
     
     public void LoadStats()
     {
@@ -63,8 +71,35 @@ public class NewEnemyGround : Unit
         HP = HP - dmgFinal;
         if (HP <= 0)
         {
+            onEnemyKilled?.Invoke();
+            //GameObject newDrop = Instantiate(CoinDrop, transform.position, transform.rotation);
+            RandomDrop();
             Destroy(gameObject);
             //drop();
+        }
+    }
+
+    private void RandomDrop()
+    {
+        int roll = Random.Range(0, 101);
+        GameObject drop = null;
+        if (roll > 20)
+        {
+            drop = CoinDrop;
+        }
+        if (roll > 80)
+        {
+            drop = SmallHealthDrop;
+        }
+        if (roll > 95)
+        {
+            drop = MediumHealthDrop;
+        }
+        //Debug.Log("Roll: " + roll);
+        if (drop != null)
+        {
+            GameObject newDrop = Instantiate(drop, transform.position, transform.rotation);
+            //Debug.Log("Drop: " + drop.gameObject.name);
         }
     }
     
