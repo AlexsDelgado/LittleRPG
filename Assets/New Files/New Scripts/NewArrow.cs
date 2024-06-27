@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,12 +15,19 @@ public class NewArrow : MonoBehaviour
     [SerializeField] private float lifeTime = 2f;
     private Unit typeEnemy;
     private float m_currentTime;
+
+    
+
+    private int damage = 0;
     //public LayerMask objetivo;
     //public UnityEvent arrow = new UnityEvent();
 
-    public void SetDirection(Vector3 p_direction, int arrowDirection)
+  
+
+    public void SetArrow(Vector3 p_direction, int arrowDirection,int _dmg)
     {
         m_direction = p_direction;
+        damage = _dmg;
         switch (arrowDirection)
         {
             case 1:
@@ -54,7 +62,7 @@ public class NewArrow : MonoBehaviour
         {
             Debug.Log("type enemy is");
             Destroy(gameObject);
-            typeEnemy.Hurt(1);
+            typeEnemy.Hurt(damage);
         }
         // if (collision.gameObject.GetType() == typeof(NewEnemyGround))
         // {

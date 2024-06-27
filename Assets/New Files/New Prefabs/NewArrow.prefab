@@ -147,9 +147,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 4
   lifeTime: 1
-  objetivo:
-    serializedVersion: 2
-    m_Bits: 0
-  arrow:
-    m_PersistentCalls:
-      m_Calls: []
+  player: {fileID: 1801946652442936868, guid: ff55fcb1418df5c4e85f93c800db9519, type: 3}

@@ -129,7 +129,7 @@ public class NewHero : Unit
     public void ShootUp()
     {
         GameObject arrow = Instantiate(arrowPrefab, transform.position + direction, transform.rotation);
-        arrow.GetComponent<NewArrow>().SetDirection(direction, arrowDirection); 
+        arrow.GetComponent<NewArrow>().SetArrow(direction, arrowDirection,STR); 
     }
 
     public override void Death()
