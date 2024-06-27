@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 565508045538610743}
   - component: {fileID: 565508045538610742}
   - component: {fileID: 2238180437484073377}
+  - component: {fileID: 4454056262697185208}
   m_Layer: 8
   m_Name: BatTest
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565508045538610696}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.532, y: -0.06717342, z: 0}
   m_LocalScale: {x: 4, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
@@ -117,7 +118,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565508045538610696}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8638ac67ccbe7ba4c869aa4bc50720eb, type: 3}
   m_Name: 
@@ -195,3 +196,27 @@ MonoBehaviour:
   chaseDist: 3
   stopDist: 5
   chase: 0
+  CoinDrop: {fileID: 0}
+  SmallHealthDrop: {fileID: 0}
+  MediumHealthDrop: {fileID: 0}
+--- !u!114 &4454056262697185208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565508045538610696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f430df682780c41ba700d92bf62043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UNIT: {fileID: 11400000, guid: e123556aed0cf7a4d91fa163016a5e68, type: 2}
+  patrolTime: 2
+  right: 0
+  chaseDist: 0
+  stopDist: 0
+  chase: 0
+  CoinDrop: {fileID: 0}
+  SmallHealthDrop: {fileID: 0}
+  MediumHealthDrop: {fileID: 0}
