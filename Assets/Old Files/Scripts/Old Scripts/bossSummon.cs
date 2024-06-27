@@ -19,13 +19,12 @@ public class bossSummon : MonoBehaviour
     {
         if (collision.gameObject.layer == 3)
         {
-            Hero player = collision.gameObject.GetComponent<Hero>();
-            if (player)
-            {
+            // Hero player = collision.gameObject.GetComponent<Hero>();
+            // // if (player)
+            // {
                 Boss.gameObject.SetActive(true);
-                GameManager.Instance.agregarEnemigo.Invoke();
-
-            }
+                // GameManager.Instance.agregarEnemigo.Invoke();
+            // }
         }
     }
 

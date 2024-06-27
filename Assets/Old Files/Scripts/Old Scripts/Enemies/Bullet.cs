@@ -31,10 +31,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Hero player = collision.gameObject.GetComponent<Hero>();
+        NewHero player = collision.gameObject.GetComponent<NewHero>();
         if (player)
         {
-            GameManager.Instance.getDamage();
+            player.Hurt(1);
         }
            
 
