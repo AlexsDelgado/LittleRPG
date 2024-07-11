@@ -15,6 +15,8 @@ public class BuyableBuff : MonoBehaviour, IPickupeable
     [SerializeField] private float attackSpeedBuff;
 
     [SerializeField] private AudioClip potionSound;
+
+    [SerializeField] private GameObject highlight;
     
     private GameObject player;
     
@@ -38,6 +40,7 @@ public class BuyableBuff : MonoBehaviour, IPickupeable
         player.GetComponent<NewHero>().Buff(STRBuff, DEFBuff, SPDBuff, attackSpeedBuff);
         AudioSource.PlayClipAtPoint(potionSound, transform.position);
         Destroy(gameObject);
+        
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +49,7 @@ public class BuyableBuff : MonoBehaviour, IPickupeable
         {
             player = collision.gameObject;
             inBuyRange = true;
+            highlight.SetActive(true);
         }
     }
 
@@ -54,6 +58,7 @@ public class BuyableBuff : MonoBehaviour, IPickupeable
         if (collision.gameObject.layer == 3)
         {
             inBuyRange = false;
+            highlight.SetActive(false);
         }
     }
 }
