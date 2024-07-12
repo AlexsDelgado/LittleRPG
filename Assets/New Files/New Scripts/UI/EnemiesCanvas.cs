@@ -17,11 +17,12 @@ public class EnemiesCanvas : MonoBehaviour
 
     private void OnEnable()
     {
-        NewEnemyGround.onEnemyKilled += EnemyKilled;
+        NewEventHandler.Instance.onEnemyKilled += EnemyKilled;
     }
+    
     private void OnDisable()
     {
-        NewEnemyGround.onEnemyKilled -= EnemyKilled;
+        NewEventHandler.Instance.onEnemyKilled -= EnemyKilled;
     }
 
     private void EnemyKilled()

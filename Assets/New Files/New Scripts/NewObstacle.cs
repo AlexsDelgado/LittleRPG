@@ -10,7 +10,8 @@ public class NewObstacle : MonoBehaviour, IPickupeable
     [SerializeField] private int price;
     [SerializeField] private AudioClip groundSound;
     private GameObject player;
-    public static event Action<int> onBuyItem;
+    
+    //public static event Action<int> onBuyItem;
 
     void Update()
     {
@@ -25,7 +26,7 @@ public class NewObstacle : MonoBehaviour, IPickupeable
 
     public void OnPickup()
     {
-        onBuyItem?.Invoke(price);
+        NewEventHandler.Instance.ItemBought(price);
        
         openNextLevel();
         //AudioSource.PlayClipAtPoint(groundSound, transform.position);

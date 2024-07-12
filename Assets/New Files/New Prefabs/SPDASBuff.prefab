@@ -373,12 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a2ba522afa8f441902480229ed0901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 10
-  STRBuff: 0
-  DEFBuff: 0
-  SPDBuff: 1
-  attackSpeedBuff: 0.5
-  potionSound: {fileID: 8300000, guid: 8d61ebaf006f50441b3ce4a06e219623, type: 3}
+  buff: {fileID: 11400000, guid: 9ba213226bc319443a5cde0178aeb586, type: 2}
+  inBuyRange: 0
   highlight: {fileID: 2678453607329707480}
 --- !u!1 &8693946094619437331
 GameObject:

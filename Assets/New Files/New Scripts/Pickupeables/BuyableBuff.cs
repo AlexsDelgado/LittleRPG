@@ -5,23 +5,41 @@ using UnityEngine;
 
 public class BuyableBuff : MonoBehaviour, IPickupeable
 {
-    private bool inBuyRange;
-    
-    [SerializeField] private int price;
-    
-    [SerializeField] private int STRBuff;
-    [SerializeField] private int DEFBuff;
-    [SerializeField] private int SPDBuff;
-    [SerializeField] private float attackSpeedBuff;
 
-    [SerializeField] private AudioClip potionSound;
+    [SerializeField] private BuffPot buff;
+    
+    [SerializeField] private bool inBuyRange;
+    
+    private int price;
+    
+    private int STRBuff;
+    private int DEFBuff;
+    private int SPDBuff;
+    private float attackSpeedBuff;
+
+    private AudioClip potionSound;
 
     [SerializeField] private GameObject highlight;
     
     private GameObject player;
+
+    private void Start()
+    {
+        LoadStats();
+    }
+
+    public void LoadStats()
+    {
+        price = buff.Price;
+        STRBuff = buff.STRBuff;
+        DEFBuff = buff.DEFBuff;
+        SPDBuff = buff.SPDBuff;
+        attackSpeedBuff = buff.AttackSpeedBuff;
+        GetComponent<SpriteRenderer>().sprite = buff.Sprite;
+        potionSound = buff.PotionSound;
+    }
     
-    
-    public static event Action<int> onBuyItem;
+    //public static event Action<int> onBuyItem;
     
     void Update()
     {
@@ -36,7 +54,7 @@ public class BuyableBuff : MonoBehaviour, IPickupeable
     
     public void OnPickup()
     {
-        onBuyItem?.Invoke(price);
+        NewEventHandler.Instance.ItemBought(price);
         player.GetComponent<NewHero>().Buff(STRBuff, DEFBuff, SPDBuff, attackSpeedBuff);
         AudioSource.PlayClipAtPoint(potionSound, transform.position);
         Destroy(gameObject);

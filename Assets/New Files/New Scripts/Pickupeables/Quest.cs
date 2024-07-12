@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour, IPickupeable
 {
-    public static event Action onPickupQuest;
+    //public static event Action onPickupQuest;
     
     public void OnPickup()
     {
-        onPickupQuest?.Invoke();
+        NewEventHandler.Instance.QuestPickedUp();
         Destroy(gameObject);
     }
     

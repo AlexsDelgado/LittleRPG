@@ -4,14 +4,29 @@ using UnityEngine;
 
 public class NewHealthPotion : MonoBehaviour, IPickupeable
 {
-    [SerializeField] private int healAmount;
-    [SerializeField] private AudioClip potionAudio;
+    [SerializeField] private HPPot Hp;
+    
+    private int healAmount;
+    private AudioClip potionSound;
     private GameObject player;
+    
+    
+    private void Start()
+    {
+        LoadStats();
+    }
+    
+    public void LoadStats()
+    {
+        healAmount = Hp.HealAmount;
+        potionSound = Hp.PotionSound;
+        GetComponent<SpriteRenderer>().sprite = Hp.Sprite;
+    }
     
     public void OnPickup()
     {
         player.GetComponent<NewHero>().Heal(healAmount);
-        AudioSource.PlayClipAtPoint(potionAudio, transform.position);
+        AudioSource.PlayClipAtPoint(potionSound, transform.position);
         Destroy(gameObject);
     }
     

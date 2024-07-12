@@ -18,11 +18,11 @@ public class QuestCanvas : MonoBehaviour
 
     private void OnEnable()
     {
-        Quest.onPickupQuest += UnlockQuest;
+        NewEventHandler.Instance.onPickupQuest += UnlockQuest;
     }
     private void OnDisable()
     {
-        Quest.onPickupQuest -= UnlockQuest;
+        NewEventHandler.Instance.onPickupQuest -= UnlockQuest;
     }
 
     private void UnlockQuest()

@@ -10,11 +10,11 @@ public class NewCoin : MonoBehaviour, IPickupeable
     [SerializeField] private int value;
     [SerializeField] private AudioClip pickupSound;
     
-    public static event Action<int> onPickupCoin;
+    //public static event Action<int> onPickupCoin;
 
     public void OnPickup()
     {
-        onPickupCoin?.Invoke(value);
+        NewEventHandler.Instance.CoinPickedUp(value);
         AudioSource.PlayClipAtPoint(pickupSound, transform.position);
         Destroy(gameObject);
     }

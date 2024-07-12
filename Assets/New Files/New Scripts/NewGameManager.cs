@@ -57,21 +57,18 @@ public class NewGameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        NewCoin.onPickupCoin += addCoins;
-        BuyableBuff.onBuyItem += subtractCoins;
-        NewObstacle.onBuyItem += subtractCoins;
-
-        Quest.onPickupQuest += EnableQuest;
-        NewEnemyGround.onEnemyKilled += EnemyKilled;
+        NewEventHandler.Instance.onPickupCoin += addCoins;
+        NewEventHandler.Instance.onBuyItem += subtractCoins;
+        NewEventHandler.Instance.onPickupQuest += EnableQuest;
+        NewEventHandler.Instance.onEnemyKilled += EnemyKilled;
     }
 
     private void OnDisable()
     {
-        NewCoin.onPickupCoin -= addCoins;
-        BuyableBuff.onBuyItem -= subtractCoins;
-        NewObstacle.onBuyItem -= subtractCoins;
-        Quest.onPickupQuest -= EnableQuest;
-        NewEnemyGround.onEnemyKilled -= EnemyKilled;
+        NewEventHandler.Instance.onPickupCoin -= addCoins;
+        NewEventHandler.Instance.onBuyItem -= subtractCoins;
+        NewEventHandler.Instance.onPickupQuest -= EnableQuest;
+        NewEventHandler.Instance.onEnemyKilled -= EnemyKilled;
     }
 
     private void addCoins(int value)

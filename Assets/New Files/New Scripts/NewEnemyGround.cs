@@ -21,7 +21,7 @@ public class NewEnemyGround : Unit
     private float targetDist;
     private Unit typeEnemy;
     
-    public static event Action onEnemyKilled;
+    //public static event Action onEnemyKilled;
 
     [SerializeField] private GameObject CoinDrop;
     [SerializeField] private GameObject SmallHealthDrop;
@@ -71,7 +71,7 @@ public class NewEnemyGround : Unit
         HP = HP - dmgFinal;
         if (HP <= 0)
         {
-            onEnemyKilled?.Invoke();
+            NewEventHandler.Instance.EnemyKilled();
             //GameObject newDrop = Instantiate(CoinDrop, transform.position, transform.rotation);
             RandomDrop();
             Destroy(gameObject);
