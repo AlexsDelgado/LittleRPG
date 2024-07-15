@@ -4533,7 +4533,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 761255131}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &260343342
 MonoBehaviour:
@@ -4547,6 +4547,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9baf30260e8f6cc45ad36888d425c3a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questAccepted: 0
+  questCompleted: 0
   menu:
     m_PersistentCalls:
       m_Calls: []
@@ -4557,6 +4559,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   cave:
+    m_PersistentCalls:
+      m_Calls: []
+  nextLevel:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &260490849
@@ -6938,6 +6943,9 @@ MonoBehaviour:
   chaseDist: 3
   stopDist: 5
   chase: 0
+  CoinDrop: {fileID: 0}
+  SmallHealthDrop: {fileID: 0}
+  MediumHealthDrop: {fileID: 0}
 --- !u!1001 &413446258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9084,7 +9092,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -13731,8 +13739,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 199580222}
   - {fileID: 260343341}
+  - {fileID: 199580222}
   - {fileID: 406679322}
   - {fileID: 412464397}
   - {fileID: 333069121}
