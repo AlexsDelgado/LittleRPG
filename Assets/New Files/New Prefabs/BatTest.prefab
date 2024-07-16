@@ -11,10 +11,8 @@ GameObject:
   - component: {fileID: 565508045538610741}
   - component: {fileID: 565508045538610698}
   - component: {fileID: 565508045538610699}
-  - component: {fileID: 565508045538610740}
   - component: {fileID: 565508045538610743}
   - component: {fileID: 565508045538610742}
-  - component: {fileID: 2238180437484073377}
   - component: {fileID: 4454056262697185208}
   m_Layer: 8
   m_Name: BatTest
@@ -111,26 +109,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &565508045538610740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 565508045538610696}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8638ac67ccbe7ba4c869aa4bc50720eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolTime: 2
-  initialSpeed: 0
-  target: {fileID: 0}
-  chaseDist: 0
-  stopDist: 0
-  hitPlayer:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!61 &565508045538610743
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -178,7 +156,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2238180437484073377
+--- !u!114 &4454056262697185208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,27 +174,6 @@ MonoBehaviour:
   chaseDist: 3
   stopDist: 5
   chase: 0
-  CoinDrop: {fileID: 0}
-  SmallHealthDrop: {fileID: 0}
-  MediumHealthDrop: {fileID: 0}
---- !u!114 &4454056262697185208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 565508045538610696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5f430df682780c41ba700d92bf62043, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UNIT: {fileID: 11400000, guid: e123556aed0cf7a4d91fa163016a5e68, type: 2}
-  patrolTime: 2
-  right: 0
-  chaseDist: 0
-  stopDist: 0
-  chase: 0
-  CoinDrop: {fileID: 0}
-  SmallHealthDrop: {fileID: 0}
-  MediumHealthDrop: {fileID: 0}
+  CoinDrop: {fileID: 2130304189055734450, guid: 09332852131209a499ae9b1f049cac75, type: 3}
+  SmallHealthDrop: {fileID: 5665189021215510958, guid: 903269233e39b254e985a08de652b9a4, type: 3}
+  MediumHealthDrop: {fileID: 3967091592581368543, guid: 90591abcb82502b4385723de160c9958, type: 3}

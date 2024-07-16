@@ -19,5 +19,5 @@ MonoBehaviour:
   MaxHP: 2
   HP: 2
   DEF: 0
-  STR: 1
+  STR: 2
   SPD: 3

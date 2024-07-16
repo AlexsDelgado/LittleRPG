@@ -12,23 +12,10 @@ public class StatsCanvas : MonoBehaviour
     [SerializeField] private float timeToClose;
     private float timer;
     
-    [SerializeField] private GameObject STR;
-    private TextMeshProUGUI STR_text;
-    [SerializeField] private GameObject DEF;
-    private TextMeshProUGUI DEF_text;
-    [SerializeField] private GameObject SPD;
-    private TextMeshProUGUI SPD_text;
-    [SerializeField] private GameObject AS;
-    private TextMeshProUGUI AS_text;
-
-    private void Start()
-    {
-        STR_text = STR.GetComponent<TextMeshProUGUI>();
-        DEF_text = DEF.GetComponent<TextMeshProUGUI>();
-        SPD_text = SPD.GetComponent<TextMeshProUGUI>();
-        AS_text = AS.GetComponent<TextMeshProUGUI>();
-    }
-
+    [SerializeField] private TextMeshProUGUI STR_text;
+    [SerializeField] private TextMeshProUGUI DEF_text;
+    [SerializeField] private TextMeshProUGUI SPD_text;
+    [SerializeField] private TextMeshProUGUI AS_text;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))

@@ -114,5 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56d1ad0967005e4fab52057c7478860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healAmount: 1
-  potionAudio: {fileID: 8300000, guid: 8d61ebaf006f50441b3ce4a06e219623, type: 3}
+  Hp: {fileID: 11400000, guid: 56fd7ba5eea47d04098598302256f720, type: 2}

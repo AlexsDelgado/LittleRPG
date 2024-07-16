@@ -24,8 +24,7 @@ public class NewGameManager : MonoBehaviour
     
     private void Start()
     {
-        _coinsCanvasProvider = MainCanvas.Instance;
-        _coinsCanvasProvider.CoinsCanvas.UpdateCoins(coins);
+        
     }
 
     private void Update()
@@ -35,6 +34,10 @@ public class NewGameManager : MonoBehaviour
             addCoins(20);
             questCompleted = true;
         }
+
+        if (!MainCanvas.Instance) return;
+        _coinsCanvasProvider = MainCanvas.Instance;
+        _coinsCanvasProvider.CoinsCanvas.UpdateCoins(coins);
     }
 
     public int Coins

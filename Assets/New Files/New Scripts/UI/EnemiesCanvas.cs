@@ -6,15 +6,9 @@ using UnityEngine;
 
 public class EnemiesCanvas : MonoBehaviour
 {
-    [SerializeField] private GameObject EnemiesKilled;
-    private TextMeshProUGUI EnemiesKilled_text;
+    [SerializeField] private TextMeshProUGUI EnemiesKilled_text;
     private int enemiesKilled;
-
-    private void Start()
-    {
-        EnemiesKilled_text = EnemiesKilled.GetComponent<TextMeshProUGUI>();
-    }
-
+    
     private void OnEnable()
     {
         NewEventHandler.Instance.onEnemyKilled += EnemyKilled;

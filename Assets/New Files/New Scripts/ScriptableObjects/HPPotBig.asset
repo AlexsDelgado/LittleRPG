@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14dad9801ad1feb42a096baba3c22d61, type: 3}
   m_Name: HPPotBig
   m_EditorClassIdentifier: 
-  HealAmount: 0
+  HealAmount: 3
   PotionSound: {fileID: 8300000, guid: 8d61ebaf006f50441b3ce4a06e219623, type: 3}
   Sprite: {fileID: 3360119811599159820, guid: 42841dbacd4b88447a3d4ba22f85abdd, type: 3}

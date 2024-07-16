@@ -12,10 +12,10 @@ public class Scenes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NewGameManager.Instance.win.AddListener(Ganar);
-        NewGameManager.Instance.lose.AddListener(Perder);
-        NewGameManager.Instance.menu.AddListener(Menu);
-        NewGameManager.Instance.cave.AddListener(LoadCave);
+        //NewGameManager.Instance.win.AddListener(Ganar);
+        //NewGameManager.Instance.lose.AddListener(Perder);
+        //NewGameManager.Instance.menu.AddListener(Menu);
+        //NewGameManager.Instance.cave.AddListener(LoadCave);
     }
 
     public void Ganar()
