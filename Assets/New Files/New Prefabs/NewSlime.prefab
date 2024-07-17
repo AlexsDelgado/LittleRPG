@@ -173,6 +173,6 @@ MonoBehaviour:
   right: 1
   stopDist: 4
   chase: 0
-  CoinDrop: {fileID: 0}
-  SmallHealthDrop: {fileID: 0}
-  MediumHealthDrop: {fileID: 0}
+  CoinDrop: {fileID: 2130304189055734450, guid: 09332852131209a499ae9b1f049cac75, type: 3}
+  SmallHealthDrop: {fileID: 5665189021215510958, guid: 903269233e39b254e985a08de652b9a4, type: 3}
+  MediumHealthDrop: {fileID: 3967091592581368543, guid: 90591abcb82502b4385723de160c9958, type: 3}
