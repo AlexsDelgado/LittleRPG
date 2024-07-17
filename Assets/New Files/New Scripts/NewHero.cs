@@ -25,6 +25,7 @@ public class NewHero : Unit
         _statsCanvasProvider = MainCanvas.Instance;
         movimiento = GetComponent<NewMovement>();
         animator = GetComponent<Animator>();
+        rend = GetComponent<SpriteRenderer>();
         LoadStats();
         _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.speed, attackSpeed);
     }
@@ -140,7 +141,9 @@ public class NewHero : Unit
         Debug.Log("dmg final: "+dmgFinal);
         Debug.Log("vida actual : "+HP);
         _healthCanvasProvider.HealthCanvas.UpdateHealth(HP, MaxHP);
-        animator.SetTrigger("hurt");
+        //animator.SetTrigger("hurt");
+        StartCoroutine(HurtAnimationColor());
+        //StartCoroutine(UnableCollider());
         if (HP <= 0)
         {
             Death();
