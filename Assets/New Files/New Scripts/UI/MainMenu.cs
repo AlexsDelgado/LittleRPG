@@ -127,6 +127,7 @@ public class MainMenu : MonoBehaviour
     {
         SFXMenu();
         NewGameManager.Instance.ResetGame();
+        //AudioManager.Instance.StopMusic();
         SceneManager.LoadScene("NewOutworld");
 
     }
