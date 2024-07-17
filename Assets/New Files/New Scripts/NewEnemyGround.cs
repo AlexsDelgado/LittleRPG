@@ -12,12 +12,12 @@ public class NewEnemyGround : Unit
     [SerializeField] private  UnitStat UNIT;
     [SerializeField] float patrolTime = 2.0f;
     public bool right = true;
-    float currentTime;
+    private float currentTime;
     private GameObject target; 
     private float SPD;
     
-    public float chaseDist;
-    public float stopDist;
+    //public float chaseDist;
+    [SerializeField] private float stopDist;
     public bool chase = false;
     private float targetDist;
     private Unit typeEnemy;

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 565508045538610742}
   - component: {fileID: 4454056262697185208}
   m_Layer: 7
-  m_Name: BatTest
+  m_Name: NewBat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,8 +171,7 @@ MonoBehaviour:
   UNIT: {fileID: 11400000, guid: e123556aed0cf7a4d91fa163016a5e68, type: 2}
   patrolTime: 2
   right: 0
-  chaseDist: 3
-  stopDist: 5
+  stopDist: 4
   chase: 0
   CoinDrop: {fileID: 2130304189055734450, guid: 09332852131209a499ae9b1f049cac75, type: 3}
   SmallHealthDrop: {fileID: 5665189021215510958, guid: 903269233e39b254e985a08de652b9a4, type: 3}
