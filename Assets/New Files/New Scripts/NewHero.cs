@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class NewHero : Unit
 {
     [SerializeField] private  UnitStat UNIT;
-    private NewMovement movimiento;
+    private NewMovement movement;
     [SerializeField] private GameObject arrowPrefab;
     private Vector3 direction;
     private int arrowDirection;
@@ -23,11 +23,11 @@ public class NewHero : Unit
     {
         _healthCanvasProvider = MainCanvas.Instance;
         _statsCanvasProvider = MainCanvas.Instance;
-        movimiento = GetComponent<NewMovement>();
+        movement = GetComponent<NewMovement>();
         animator = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
         LoadStats();
-        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.GetSpeed(), attackSpeed);
+        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movement.GetSpeed(), attackSpeed);
     }
     
     //scritableObject stats
@@ -37,7 +37,7 @@ public class NewHero : Unit
         HP = UNIT.HP;
         STR = UNIT.STR;
         DEF = UNIT.DEF;
-        movimiento.SetSpeed(UNIT.SPD);
+        movement.SetSpeed(UNIT.SPD);
     }
 
     /*public void ChangeAttackSpeed(float change)
@@ -117,9 +117,9 @@ public class NewHero : Unit
         }
        
         
-        animator.SetFloat("Horizontal", movimiento.GetHorizontalAxis());
-        animator.SetFloat("Vertical", movimiento.GetVerticalAxis());
-        animator.SetFloat("Speed", new Vector2(movimiento.GetHorizontalAxis(), movimiento.GetVerticalAxis()).sqrMagnitude);
+        animator.SetFloat("Horizontal", movement.GetHorizontalAxis());
+        animator.SetFloat("Vertical", movement.GetVerticalAxis());
+        animator.SetFloat("Speed", new Vector2(movement.GetHorizontalAxis(), movement.GetVerticalAxis()).sqrMagnitude);
     }
 
     public void ShootUp()
@@ -174,9 +174,10 @@ public class NewHero : Unit
     {
         STR += _STR;
         DEF += _DEF;
-        float auxSPD = movimiento.GetSpeed() + _SPD;
-        movimiento.SetSpeed(auxSPD);
+        float auxSPD = movement.GetSpeed() + _SPD;
+        movement.SetSpeed(auxSPD);
         attackSpeed -= _AS;
-        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.GetSpeed(), attackSpeed);
+        //_statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.GetSpeed(), attackSpeed);
+        NewEventHandler.Instance.StatsUpdated(STR, DEF, (int)movement.GetSpeed(), attackSpeed);
     }
 }
