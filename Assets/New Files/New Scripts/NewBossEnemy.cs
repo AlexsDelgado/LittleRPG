@@ -10,6 +10,7 @@ public class NewBossEnemy : Unit
     public bool right = true;
     public GameObject target; 
     private float SPD;
+    private float bulletSPD;
     
     public float chaseDist;
     public float stopDist;
@@ -28,6 +29,7 @@ public class NewBossEnemy : Unit
         STR = UNIT.STR;
         DEF = UNIT.DEF;
         SPD = UNIT.SPD;
+        bulletSPD = 5;
     }
 
     public float GetSPD()
@@ -61,17 +63,22 @@ public class NewBossEnemy : Unit
             if (HP <=  MaxHP/2)
             {
                 timerLimit = 0.7f;
+                bulletSPD = 8;
             }
-            // if(HP <= MaxHP/5)
-            // {
-            //     timerLimit = 0.2f;
-            // }
+            if(HP <= MaxHP/5)
+            {
+                timerLimit = 0.2f;
+                bulletSPD = 10;
+            }
     }
     
     
     private void Shoot()
     {
-        Instantiate(bullet, firePoint.transform.position, Quaternion.identity);
+        
+        GameObject auxBullet = Instantiate(bullet, firePoint.transform.position, Quaternion.identity);
+        auxBullet.GetComponent<Bullet>().SetDamage(STR);
+        auxBullet.GetComponent<Bullet>().SetSpeed(bulletSPD);
 
         animator.SetTrigger("Attack");
         animator.SetBool("Move", false);
@@ -79,13 +86,18 @@ public class NewBossEnemy : Unit
 
     private void ChasePlayer()
     {
-        if (transform.position.x < target.transform.position.x)
+        if (transform.position.x < target.transform.position.x && !right)
         {
-            gameObject.transform.localScale = new Vector3(5,5, 1);
+          
+            //gameObject.transform.localScale = new Vector3(5,5, 1);
+            gameObject.transform.Rotate(new Vector3(0, 180, 0));
+            right = true;
         }
-        else
+        else if (transform.position.x > target.transform.position.x && right)
         {
-            gameObject.transform.localScale = new Vector3(-5, 5, 1);
+
+            gameObject.transform.Rotate(new Vector3(0, 180, 0));
+            right = false;
         }
 
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, SPD * Time.deltaTime);
