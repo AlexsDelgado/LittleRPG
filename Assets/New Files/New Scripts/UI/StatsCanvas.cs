@@ -38,9 +38,18 @@ public class StatsCanvas : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        NewEventHandler.Instance.onUpdateStats += UpdateStats;
+    }
+    private void OnDisable()
+    {
+        NewEventHandler.Instance.onUpdateStats -= UpdateStats;
+    }
+    
     public void UpdateStats(int newStr, int newDef, int newSpd, float newAs)
     {
-        STR_text.text = newStr.ToString();
+        STR_text.text = newStr.ToString(); 
         DEF_text.text = newDef.ToString();
         SPD_text.text = newSpd.ToString();
         AS_text.text = newAs.ToString();

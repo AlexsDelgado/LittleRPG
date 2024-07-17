@@ -35,9 +35,8 @@ public class NewGameManager : MonoBehaviour
             questCompleted = true;
         }
 
-        if (!MainCanvas.Instance) return;
-        _coinsCanvasProvider = MainCanvas.Instance;
-        _coinsCanvasProvider.CoinsCanvas.UpdateCoins(coins);
+        //if (!MainCanvas.Instance) return;
+        //_coinsCanvasProvider = MainCanvas.Instance;
     }
 
     public int Coins
@@ -77,13 +76,11 @@ public class NewGameManager : MonoBehaviour
     private void addCoins(int value)
     {
         coins += value;
-        _coinsCanvasProvider.CoinsCanvas.UpdateCoins(coins);
     }
 
     private void subtractCoins(int value)
     {
         coins -= value;
-        _coinsCanvasProvider.CoinsCanvas.UpdateCoins(coins);
     }
 
     public void LoadCave()

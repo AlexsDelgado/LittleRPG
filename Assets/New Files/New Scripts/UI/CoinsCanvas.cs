@@ -7,11 +7,30 @@ using UnityEngine;
 public class CoinsCanvas : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI coinsText;
-
-
-    public void UpdateCoins(int amount)
+    private int coins;
+    
+    private void OnEnable()
     {
-        coinsText.text = amount.ToString();
+        NewEventHandler.Instance.onPickupCoin += UpdateCoinsUp;
+        NewEventHandler.Instance.onBuyItem += UpdateCoinsDown;
+    }
+
+    private void OnDisable()
+    {
+        NewEventHandler.Instance.onPickupCoin -= UpdateCoinsUp;
+        NewEventHandler.Instance.onBuyItem -= UpdateCoinsDown;
+    }
+    
+    private void UpdateCoinsUp(int amount)
+    {
+        coins += amount;
+        coinsText.text = coins.ToString();
+    }
+    
+    private void UpdateCoinsDown(int amount)
+    {
+        coins -= amount;
+        coinsText.text = coins.ToString();
     }
     
     

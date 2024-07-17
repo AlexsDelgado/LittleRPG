@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class NewHero : Unit
 {
     [SerializeField] private  UnitStat UNIT;
-    private NewMovement movimiento;
+    private NewMovement movement;
     [SerializeField] private GameObject arrowPrefab;
     private Vector3 direction;
     private int arrowDirection;
@@ -23,10 +23,10 @@ public class NewHero : Unit
     {
         _healthCanvasProvider = MainCanvas.Instance;
         _statsCanvasProvider = MainCanvas.Instance;
-        movimiento = GetComponent<NewMovement>();
+        movement = GetComponent<NewMovement>();
         animator = GetComponent<Animator>();
         LoadStats();
-        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.speed, attackSpeed);
+        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movement.speed, attackSpeed);
     }
     
     //scritableObject stats
@@ -36,7 +36,7 @@ public class NewHero : Unit
         HP = UNIT.HP;
         STR = UNIT.STR;
         DEF = UNIT.DEF;
-        movimiento.speed = UNIT.SPD;
+        movement.speed = UNIT.SPD;
     }
 
     /*public void ChangeAttackSpeed(float change)
@@ -116,9 +116,9 @@ public class NewHero : Unit
         }
        
         
-        animator.SetFloat("Horizontal", movimiento.l_horizontal);
-        animator.SetFloat("Vertical", movimiento.l_vertical);
-        animator.SetFloat("Speed", new Vector2(movimiento.l_horizontal, movimiento.l_vertical).sqrMagnitude);
+        animator.SetFloat("Horizontal", movement.l_horizontal);
+        animator.SetFloat("Vertical", movement.l_vertical);
+        animator.SetFloat("Speed", new Vector2(movement.l_horizontal, movement.l_vertical).sqrMagnitude);
     }
 
     public void ShootUp()
@@ -171,8 +171,9 @@ public class NewHero : Unit
     {
         STR += _STR;
         DEF += _DEF;
-        movimiento.speed += _SPD;
+        movement.speed += _SPD;
         attackSpeed -= _AS;
-        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.speed, attackSpeed);
+        //_statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movement.speed, attackSpeed);
+        NewEventHandler.Instance.StatsUpdated(STR, DEF, (int)movement.speed, attackSpeed);
     }
 }

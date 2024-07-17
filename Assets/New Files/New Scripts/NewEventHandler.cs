@@ -24,6 +24,7 @@ public class NewEventHandler : MonoBehaviour
     public event Action<int> onPickupCoin;
     public event Action onPickupQuest;
     public event Action onEnemyKilled;
+    public event Action<int, int, int, float> onUpdateStats;
 
     public void ItemBought(int price)
     {
@@ -43,5 +44,10 @@ public class NewEventHandler : MonoBehaviour
     public void EnemyKilled()
     {
         onEnemyKilled?.Invoke();
+    }
+    
+    public void StatsUpdated(int STR, int DEF, int SPD, float AS)
+    {
+        onUpdateStats?.Invoke(STR, DEF, SPD, AS);
     }
 }
