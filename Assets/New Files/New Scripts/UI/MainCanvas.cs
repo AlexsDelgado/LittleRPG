@@ -25,7 +25,7 @@ public class MainCanvas : MonoBehaviour, IHealthCanvasProvider, IStatsCanvasProv
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }
