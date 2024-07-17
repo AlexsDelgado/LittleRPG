@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,12 +14,13 @@ public class HealthCanvas : MonoBehaviour
 
     public void UpdateHealth(int newHealth, int maxHealth)
     {
+        
         for (int i = 0; i < maxHealth; i++)
         {
             Hearts[i].enabled = true;
         }
         
-        for (int i = 0; i < newHealth; i++)
+        for (int i = 0; i < Math.Clamp(newHealth, 0, maxHealth); i++)
         {
             Hearts[i].sprite = heart;
         }

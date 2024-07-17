@@ -56,22 +56,18 @@ public class NewEnemyGround : Unit
     {
        
         if (chase == true && target!=null)
-            
         {
             transform.position = Vector2.MoveTowards(transform.position,target.transform.position,Time.deltaTime*SPD);
             targetDist = Vector2.Distance(transform.position, target.transform.position);
-            if (transform.position.x < target.transform.position.x)
+            if (transform.position.x < target.transform.position.x && !right)
             {
-                
-                //scale.x = Mathf.Abs(scale.x) * -1;
-                transform.localScale= new Vector3(4, 3, 1);
-               
+                gameObject.transform.Rotate(new Vector3(0, 180, 0));
+                right = true;
             }
-            else
+            else if (transform.position.x > target.transform.position.x && right)
             {
-                transform.localScale= new Vector3(-4, 3, 1);
-                //scale.x = Mathf.Abs(scale.x);
-               
+                gameObject.transform.Rotate(new Vector3(0, 180, 0));
+                right = false;
             }
 
             //transform.position = scale;
