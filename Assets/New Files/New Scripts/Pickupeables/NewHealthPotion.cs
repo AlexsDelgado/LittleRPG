@@ -26,7 +26,8 @@ public class NewHealthPotion : MonoBehaviour, IPickupeable
     public void OnPickup()
     {
         player.GetComponent<NewHero>().Heal(healAmount);
-        AudioSource.PlayClipAtPoint(potionSound, transform.position);
+        AudioManager.Instance.PlaySound(potionSound);
+        //AudioSource.PlayClipAtPoint(potionSound, transform.position);
         Destroy(gameObject);
     }
     
