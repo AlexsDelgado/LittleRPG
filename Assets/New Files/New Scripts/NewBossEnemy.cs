@@ -7,22 +7,23 @@ public class NewBossEnemy : Unit
 {
 
     [SerializeField] private  UnitStat UNIT;
-    public bool right = true;
-    public GameObject target; 
+    private bool right = true; 
+    [SerializeField] private GameObject target; 
     private float SPD;
     private float bulletSPD;
     
-    public float chaseDist;
-    public float stopDist;
-    public bool chase = false;
+    [SerializeField] private float chaseDist;
+    [SerializeField] private float stopDist;
+    private bool chase = false;
     private float targetDist;
     private Unit typeEnemy;
     private float timer;
     private float timerLimit;
-    public GameObject bullet;
-    public GameObject firePoint;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject firePoint;
     
-    public void LoadStats()
+    
+    private void LoadStats()
     {
         MaxHP = UNIT.MaxHP;
         HP = UNIT.HP;
@@ -36,7 +37,7 @@ public class NewBossEnemy : Unit
     {
         return SPD;
     }
-    void Start()
+    private void Start()
     {
         animator = GetComponent<Animator>();
         timerLimit = 2;
