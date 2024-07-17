@@ -43,6 +43,7 @@ public class NewEnemyGround : Unit
     void Start()
     {
         animator = GetComponent<Animator>();
+        rend = GetComponent<SpriteRenderer>();
         LoadStats();
     }
 
@@ -64,11 +65,15 @@ public class NewEnemyGround : Unit
         target = newTarget;
     }
 
+
     public override void Hurt(int dmg)
     {
         
         int dmgFinal = calculateDamage(dmg);
+        
         HP = HP - dmgFinal;
+        StartCoroutine(HurtAnimationColor());
+        StartCoroutine(UnableCollider());
         if (HP <= 0)
         {
             NewEventHandler.Instance.EnemyKilled();
@@ -79,6 +84,25 @@ public class NewEnemyGround : Unit
         }
     }
 
+    //  public override IEnumerator HurtAnimationColor()
+    // {
+    //     colorActual = rend.material.color;
+    //     newColor = new Color(colorActual.r, colorActual.g, colorActual.b, 1f);
+    //     colorAuxiliar = new Color(colorActual.r, colorActual.g, colorActual.b, 0.6f);
+    //   
+    //     rend.material.color = colorAuxiliar;
+    //     yield return new WaitForSeconds(0.2f);
+    //     rend.material.color = newColor;
+    //
+    //     yield return new WaitForSeconds(0.2f);
+    //     rend.material.color = colorAuxiliar;
+    //     yield return new WaitForSeconds(0.2f);
+    //     rend.material.color = newColor;
+    //
+    //     rend.material.color = colorAuxiliar;
+    //     yield return new WaitForSeconds(0.2f);
+    //     rend.material.color = newColor;
+    // }
     private void RandomDrop()
     {
         int roll = Random.Range(0, 101);
@@ -102,16 +126,16 @@ public class NewEnemyGround : Unit
             //Debug.Log("Drop: " + drop.gameObject.name);
         }
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //GameObject aux = collision.gameObject.
         typeEnemy = collision.gameObject.GetComponent<NewHero>();
-        if (typeEnemy is NewHero)
+        if (typeEnemy is NewHero && canAttack)
         {
             Debug.Log("is enemy");
-            
             typeEnemy.Hurt(STR);
+            StartCoroutine(UnableCollider());
         }
         // if (collision.gameObject.GetType() == typeof(NewEnemyGround))
         // {

@@ -33,4 +33,25 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.Play();
     }
+    
+    
+    private void Start()
+    {
+        AudioListener.volume = 0.2f;
+    }
+
+    public void ToggleSfx()
+    {
+        audioSource.mute = !audioSource.mute;
+    }
+    public void ToggleBgm()
+    {
+        musicSource.mute = !musicSource.mute;
+    }
+    
+    public void ChangeMasterVolume(float value)
+    {
+        AudioListener.volume = value;
+    }
+    
 }

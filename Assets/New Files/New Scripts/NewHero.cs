@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class NewHero : Unit
 {
     [SerializeField] private  UnitStat UNIT;
-    private NewMovement movement;
+    private NewMovement movimiento;
     [SerializeField] private GameObject arrowPrefab;
     private Vector3 direction;
     private int arrowDirection;
@@ -23,10 +23,11 @@ public class NewHero : Unit
     {
         _healthCanvasProvider = MainCanvas.Instance;
         _statsCanvasProvider = MainCanvas.Instance;
-        movement = GetComponent<NewMovement>();
+        movimiento = GetComponent<NewMovement>();
         animator = GetComponent<Animator>();
+        rend = GetComponent<SpriteRenderer>();
         LoadStats();
-        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movement.speed, attackSpeed);
+        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.GetSpeed(), attackSpeed);
     }
     
     //scritableObject stats
@@ -36,7 +37,7 @@ public class NewHero : Unit
         HP = UNIT.HP;
         STR = UNIT.STR;
         DEF = UNIT.DEF;
-        movement.speed = UNIT.SPD;
+        movimiento.SetSpeed(UNIT.SPD);
     }
 
     /*public void ChangeAttackSpeed(float change)
@@ -116,9 +117,9 @@ public class NewHero : Unit
         }
        
         
-        animator.SetFloat("Horizontal", movement.l_horizontal);
-        animator.SetFloat("Vertical", movement.l_vertical);
-        animator.SetFloat("Speed", new Vector2(movement.l_horizontal, movement.l_vertical).sqrMagnitude);
+        animator.SetFloat("Horizontal", movimiento.GetHorizontalAxis());
+        animator.SetFloat("Vertical", movimiento.GetVerticalAxis());
+        animator.SetFloat("Speed", new Vector2(movimiento.GetHorizontalAxis(), movimiento.GetVerticalAxis()).sqrMagnitude);
     }
 
     public void ShootUp()
@@ -140,7 +141,9 @@ public class NewHero : Unit
         Debug.Log("dmg final: "+dmgFinal);
         Debug.Log("vida actual : "+HP);
         _healthCanvasProvider.HealthCanvas.UpdateHealth(HP, MaxHP);
-        animator.SetTrigger("hurt");
+        //animator.SetTrigger("hurt");
+        StartCoroutine(HurtAnimationColor());
+        //StartCoroutine(UnableCollider());
         if (HP <= 0)
         {
             Death();
@@ -171,9 +174,9 @@ public class NewHero : Unit
     {
         STR += _STR;
         DEF += _DEF;
-        movement.speed += _SPD;
+        float auxSPD = movimiento.GetSpeed() + _SPD;
+        movimiento.SetSpeed(auxSPD);
         attackSpeed -= _AS;
-        //_statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movement.speed, attackSpeed);
-        NewEventHandler.Instance.StatsUpdated(STR, DEF, (int)movement.speed, attackSpeed);
+        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.GetSpeed(), attackSpeed);
     }
 }
