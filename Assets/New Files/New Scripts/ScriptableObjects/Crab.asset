@@ -16,6 +16,7 @@ MonoBehaviour:
   canFly: 0
   unitName: Crab
   unitLevel: 1
+  hurtSound: {fileID: 8300000, guid: 95746942a9369764bbe76ddc6d06179a, type: 3}
   MaxHP: 2
   HP: 2
   DEF: 1

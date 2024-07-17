@@ -16,6 +16,7 @@ MonoBehaviour:
   canFly: 0
   unitName: Player1
   unitLevel: 1
+  hurtSound: {fileID: 8300000, guid: a42f930b93e262d4d97edd04ca65d4d0, type: 3}
   MaxHP: 6
   HP: 6
   DEF: 1

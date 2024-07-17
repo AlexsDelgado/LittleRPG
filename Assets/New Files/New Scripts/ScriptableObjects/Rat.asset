@@ -16,6 +16,7 @@ MonoBehaviour:
   canFly: 0
   unitName: Rattata
   unitLevel: 1
+  hurtSound: {fileID: 8300000, guid: 033fa381762df32448af5cf6c1f05f88, type: 3}
   MaxHP: 1
   HP: 1
   DEF: 0
