@@ -17,8 +17,8 @@ MonoBehaviour:
   unitName: RockGolem
   unitLevel: 1
   hurtSound: {fileID: 8300000, guid: 0bb8fdf82317f8f4db9da8c47871e164, type: 3}
-  MaxHP: 6
-  HP: 6
-  DEF: 2
-  STR: 2
+  MaxHP: 7
+  HP: 7
+  DEF: 1
+  STR: 4
   SPD: 1

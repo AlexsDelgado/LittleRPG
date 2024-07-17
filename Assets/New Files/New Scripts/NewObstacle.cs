@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NewObstacle : MonoBehaviour, IPickupeable
 {
-    public GameObject[] obstaculos;
+    [SerializeField] private GameObject[] obstaculos;
     private bool inBuyRange;
     [SerializeField] private int price;
     [SerializeField] private AudioClip groundSound;
