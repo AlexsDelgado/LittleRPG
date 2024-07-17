@@ -10,6 +10,7 @@ public class Unit : MonoBehaviour
     protected int STR;
     protected int DEF;
     protected Animator animator;
+    protected AudioClip hurtSound;
 
     public virtual void Death() {}
     public virtual void Hurt(int dmg) {}
