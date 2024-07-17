@@ -10,6 +10,7 @@ public class NewPatrolZone : MonoBehaviour
     public Transform endPosition;
     public NewEnemyGround enemy;
     public Vector2 enemyPosition;
+    private Unit target;
     
 
     //[Range(0, 3f)]
@@ -57,19 +58,15 @@ public class NewPatrolZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("colisiono afuera");
-        // if (collision.GetType() == typeof(NewHero))
-        // {
-        //     Debug.Log("colisiono new hero");
-        //     enemy.chase = true;
-        //     enemy.SetTarget(collision.gameObject);
-        // }
-
-
-        if (collision.gameObject.GetType() == typeof(NewHero))
+        //Debug.Log("colisiono afuera");
+        target = collision.gameObject.GetComponent<NewHero>();
+        if (target is NewHero)
         {
             Debug.Log("is new hero");
+            enemy.chase = true;
+            enemy.SetTarget(collision.gameObject);
         }
+        
     }
 
     private void OnDrawGizmos()

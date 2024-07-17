@@ -73,7 +73,7 @@ public class NewEnemyGround : Unit
         
         HP = HP - dmgFinal;
         StartCoroutine(HurtAnimationColor());
-        StartCoroutine(UnableCollider());
+        //StartCoroutine(UnableCollider());
         if (HP <= 0)
         {
             NewEventHandler.Instance.EnemyKilled();

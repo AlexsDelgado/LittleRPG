@@ -30,6 +30,7 @@ public class NewObstacle : MonoBehaviour, IPickupeable
        
         openNextLevel();
         //AudioSource.PlayClipAtPoint(groundSound, transform.position);
+        AudioManager.Instance.PlaySound(groundSound);
         Destroy(gameObject);
     }
 
