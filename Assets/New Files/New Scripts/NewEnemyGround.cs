@@ -34,6 +34,7 @@ public class NewEnemyGround : Unit
         STR = UNIT.STR;
         DEF = UNIT.DEF;
         SPD = UNIT.SPD;
+        hurtSound = UNIT.hurtSound;
     }
 
     public float GetSPD()
@@ -70,7 +71,7 @@ public class NewEnemyGround : Unit
     {
         
         int dmgFinal = calculateDamage(dmg);
-        
+        AudioManager.Instance.PlaySound(hurtSound);
         HP = HP - dmgFinal;
         StartCoroutine(HurtAnimationColor());
         //StartCoroutine(UnableCollider());

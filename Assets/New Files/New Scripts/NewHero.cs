@@ -38,6 +38,7 @@ public class NewHero : Unit
         STR = UNIT.STR;
         DEF = UNIT.DEF;
         movement.SetSpeed(UNIT.SPD);
+        hurtSound = UNIT.hurtSound;
     }
 
     /*public void ChangeAttackSpeed(float change)
@@ -137,6 +138,7 @@ public class NewHero : Unit
     public override void Hurt(int dmg)
     {
         int dmgFinal = calculateDamage(dmg);
+        AudioManager.Instance.PlaySound(hurtSound);
         HP = HP - dmgFinal;
         Debug.Log("dmg final: "+dmgFinal);
         Debug.Log("vida actual : "+HP);

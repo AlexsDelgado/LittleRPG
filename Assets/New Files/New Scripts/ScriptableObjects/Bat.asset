@@ -16,6 +16,7 @@ MonoBehaviour:
   canFly: 1
   unitName: Bat
   unitLevel: 1
+  hurtSound: {fileID: 8300000, guid: 7fde314a5755efc48af6c8ed7d146cc8, type: 3}
   MaxHP: 5
   HP: 5
   DEF: 0

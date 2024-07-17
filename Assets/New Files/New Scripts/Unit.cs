@@ -14,6 +14,7 @@ public class Unit : MonoBehaviour
     protected int DEF;
     protected Animator animator;
     protected bool canAttack =true;
+    protected AudioClip hurtSound;
     
     protected Color newColor;
     protected float colorCD;
