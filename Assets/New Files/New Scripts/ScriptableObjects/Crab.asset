@@ -17,8 +17,8 @@ MonoBehaviour:
   unitName: Crab
   unitLevel: 1
   hurtSound: {fileID: 8300000, guid: 95746942a9369764bbe76ddc6d06179a, type: 3}
-  MaxHP: 2
-  HP: 2
+  MaxHP: 5
+  HP: 5
   DEF: 1
-  STR: 1
+  STR: 3
   SPD: 2

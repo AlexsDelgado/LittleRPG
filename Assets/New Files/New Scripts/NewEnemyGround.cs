@@ -18,7 +18,8 @@ public class NewEnemyGround : Unit
     
     //public float chaseDist;
     [SerializeField] private float stopDist;
-    public bool chase = false;
+    private bool chase = false;
+    public bool Chase => chase;
     private float targetDist;
     private Unit typeEnemy;
     
@@ -146,6 +147,11 @@ public class NewEnemyGround : Unit
             GameObject newDrop = Instantiate(drop, transform.position, transform.rotation);
             //Debug.Log("Drop: " + drop.gameObject.name);
         }
+    }
+
+    public void StartChase()
+    {
+        chase = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

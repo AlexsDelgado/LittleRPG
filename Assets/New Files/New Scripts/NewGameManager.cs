@@ -14,12 +14,12 @@ public class NewGameManager : MonoBehaviour
     public static NewGameManager Instance;
     private int coins;
     private ICoinsCanvasProvider _coinsCanvasProvider;
-    public UnityEvent menu = new UnityEvent();
-    public UnityEvent lose = new UnityEvent();
-    public UnityEvent win = new UnityEvent();
+    //public UnityEvent menu = new UnityEvent();
+    //public UnityEvent lose = new UnityEvent();
+    //public UnityEvent win = new UnityEvent();
     public UnityEvent cave = new UnityEvent();
+    //public UnityEvent nextLevel = new UnityEvent();
 
-    public UnityEvent nextLevel = new UnityEvent();
     private int killedEnemies;
     
     private void Start()

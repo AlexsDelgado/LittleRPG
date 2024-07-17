@@ -6,10 +6,10 @@ using UnityEngine.UIElements;
 
 public class NewPatrolZone : MonoBehaviour
 {
-    public Transform startPosition;
-    public Transform endPosition;
-    public NewEnemyGround enemy;
-    public Vector2 enemyPosition;
+    [SerializeField] private Transform startPosition;
+    [SerializeField] private Transform endPosition;
+    [SerializeField] private NewEnemyGround enemy;
+    [SerializeField] private Vector2 enemyPosition;
     private Unit target;
     
 
@@ -19,7 +19,7 @@ public class NewPatrolZone : MonoBehaviour
     {
         if (enemy != null)
         {
-            if (enemy.chase==false)
+            if (enemy.Chase==false)
             {
                 if(Mathf.Approximately(enemyPosition.x, startPosition.position.x))
                 {
@@ -63,7 +63,7 @@ public class NewPatrolZone : MonoBehaviour
         if (target is NewHero)
         {
             Debug.Log("is new hero");
-            enemy.chase = true;
+            enemy.StartChase();
             enemy.SetTarget(collision.gameObject);
         }
         

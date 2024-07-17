@@ -17,8 +17,8 @@ MonoBehaviour:
   unitName: Slime
   unitLevel: 1
   hurtSound: {fileID: 8300000, guid: 6fe45f616b7f5fc4a91f52d16c2120d7, type: 3}
-  MaxHP: 3
-  HP: 3
-  DEF: 1
-  STR: 1
+  MaxHP: 5
+  HP: 5
+  DEF: 0
+  STR: 3
   SPD: 2
