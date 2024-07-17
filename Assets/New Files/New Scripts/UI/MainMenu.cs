@@ -33,13 +33,13 @@ public class MainMenu : MonoBehaviour
         faq.onClick.AddListener(ShowFaqCanvas);
     }
 
-    public void SFXMenu()
+    private void SFXMenu()
     {
         AudioManager.Instance.PlaySound(uiSfx);
     }
     
     
-    public void HideButtons()
+    private void HideButtons()
     {
         play.gameObject.SetActive(false);
         quit.gameObject.SetActive(false);
@@ -49,7 +49,7 @@ public class MainMenu : MonoBehaviour
         bossFight.gameObject.SetActive(false);
         
     }
-    public void ShowButtons()
+    private void ShowButtons()
     {
         play.gameObject.SetActive(true);
         quit.gameObject.SetActive(true);
@@ -60,13 +60,13 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    public void BossCave()
+    private void BossCave()
     {
         SFXMenu();
         SceneManager.LoadScene("NewCave");
     }
     
-    public void VolumeCanvas()
+    private void VolumeCanvas()
     {
         SFXMenu();
         HideButtons();
@@ -76,7 +76,7 @@ public class MainMenu : MonoBehaviour
     }
     
     
-    public void ShowFaqCanvas()
+    private void ShowFaqCanvas()
     {
         SFXMenu();
         HideButtons();
@@ -84,14 +84,14 @@ public class MainMenu : MonoBehaviour
         faqExit.onClick.AddListener(FaqCanvasExit);
         
     }
-    public void FaqCanvasExit()
+    private void FaqCanvasExit()
     {
         SFXMenu();
         faqExit.onClick.RemoveAllListeners();
         faqCanvas.SetActive(false);
         ShowButtons();
     }
-    public void VolumeCanvasExit()
+    private void VolumeCanvasExit()
     {
         SFXMenu();
         volumenExit.onClick.RemoveAllListeners();
@@ -100,7 +100,7 @@ public class MainMenu : MonoBehaviour
     }
     
     
-    public void CreditCanvas()
+    private void CreditCanvas()
     {
         SFXMenu();
         HideButtons();
@@ -108,7 +108,7 @@ public class MainMenu : MonoBehaviour
         creditsExit.onClick.AddListener(CreditCanvasExit);
         
     }
-    public void CreditCanvasExit()
+    private void CreditCanvasExit()
     {
         SFXMenu();
         creditsExit.onClick.RemoveAllListeners();
@@ -118,14 +118,15 @@ public class MainMenu : MonoBehaviour
     
     
     
-    public void Quit()
+    private void Quit()
     {
         SFXMenu();
         Application.Quit();
     }
-    public void Play()
+    private void Play()
     {
         SFXMenu();
+        NewGameManager.Instance.ResetGame();
         SceneManager.LoadScene("NewOutworld");
 
     }

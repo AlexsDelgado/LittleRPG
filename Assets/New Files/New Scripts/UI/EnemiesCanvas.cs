@@ -12,13 +12,20 @@ public class EnemiesCanvas : MonoBehaviour
     private void OnEnable()
     {
         NewEventHandler.Instance.onEnemyKilled += EnemyKilled;
+        NewEventHandler.Instance.onResetGame+= ResetEnemies;
     }
     
     private void OnDisable()
     {
         NewEventHandler.Instance.onEnemyKilled -= EnemyKilled;
+        NewEventHandler.Instance.onResetGame-= ResetEnemies;
     }
 
+    private void ResetEnemies()
+    {
+        enemiesKilled = 0;
+        EnemiesKilled_text.text = enemiesKilled.ToString();
+    }
     private void EnemyKilled()
     {
         enemiesKilled++;

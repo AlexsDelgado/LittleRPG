@@ -13,12 +13,14 @@ public class CoinsCanvas : MonoBehaviour
     {
         NewEventHandler.Instance.onPickupCoin += UpdateCoinsUp;
         NewEventHandler.Instance.onBuyItem += UpdateCoinsDown;
+        NewEventHandler.Instance.onResetGame += ResetCoins;
     }
 
     private void OnDisable()
     {
         NewEventHandler.Instance.onPickupCoin -= UpdateCoinsUp;
         NewEventHandler.Instance.onBuyItem -= UpdateCoinsDown;
+        NewEventHandler.Instance.onResetGame -= ResetCoins;
     }
     
     private void UpdateCoinsUp(int amount)
@@ -26,7 +28,12 @@ public class CoinsCanvas : MonoBehaviour
         coins += amount;
         coinsText.text = coins.ToString();
     }
-    
+
+    private void ResetCoins()
+    {
+        coins = 0;
+        coinsText.text = coins.ToString();
+    }
     private void UpdateCoinsDown(int amount)
     {
         coins -= amount;

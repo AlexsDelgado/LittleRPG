@@ -19,15 +19,22 @@ public class QuestCanvas : MonoBehaviour
     private void OnEnable()
     {
         NewEventHandler.Instance.onPickupQuest += UnlockQuest;
+        NewEventHandler.Instance.onResetGame += ResetQuest;
     }
     private void OnDisable()
     {
         NewEventHandler.Instance.onPickupQuest -= UnlockQuest;
+        NewEventHandler.Instance.onResetGame -= ResetQuest;
     }
 
     private void UnlockQuest()
     {
         questUnlocked = true;
         Panel.SetActive(true);
+    }
+
+    private void ResetQuest()
+    {
+        questUnlocked = false;
     }
 }

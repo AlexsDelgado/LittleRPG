@@ -14,7 +14,7 @@ public class NewBossEnemy : Unit
     
     [SerializeField] private float chaseDist;
     [SerializeField] private float stopDist;
-    private bool chase = false;
+    //private bool chase = false;
     private float targetDist;
     private Unit typeEnemy;
     private float timer;

@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UNIT: {fileID: 11400000, guid: 7da090fce1607f64cbad70d80038fd93, type: 2}
   arrowPrefab: {fileID: 7512811211480117066, guid: eabb4680fd73ca94b8da4e4e7ab50a4f, type: 3}
-  hitRadio: 0.6
+  hitRadio: 1
   hitController: {fileID: 1582856516}
 --- !u!50 &982394084
 Rigidbody2D:

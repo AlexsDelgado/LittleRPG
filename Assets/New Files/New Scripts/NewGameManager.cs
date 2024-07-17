@@ -21,10 +21,14 @@ public class NewGameManager : MonoBehaviour
     //public UnityEvent nextLevel = new UnityEvent();
 
     private int killedEnemies;
-    
-    private void Start()
+
+    public void ResetGame()
     {
-        
+        questAccepted = false;
+        questCompleted = false;
+        coins = 0;
+        killedEnemies = 0;
+        NewEventHandler.Instance.ResetGame();
     }
 
     private void Update()

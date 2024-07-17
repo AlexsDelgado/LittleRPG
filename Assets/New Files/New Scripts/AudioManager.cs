@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
     }
     
     
-    
+    pu
     public void PlaySound(AudioClip p_clip)
     {
         audioSource.PlayOneShot(p_clip);

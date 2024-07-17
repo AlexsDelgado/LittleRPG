@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 public class NewEnemyGround : Unit
 {
     [SerializeField] private  UnitStat UNIT;
-    [SerializeField] float patrolTime = 2.0f;
+    //[SerializeField] float patrolTime = 2.0f;
     public bool right = true;
     private float currentTime;
     private GameObject target; 

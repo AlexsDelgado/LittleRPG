@@ -19,13 +19,19 @@ public class NewEventHandler : MonoBehaviour
             Destroy(this);
         }
     }
-    
+
+    public event Action onResetGame; 
     public event Action<int> onBuyItem;
     public event Action<int> onPickupCoin;
     public event Action onPickupQuest;
     public event Action onEnemyKilled;
     public event Action<int, int, int, float> onUpdateStats;
 
+
+    public void ResetGame()
+    {
+        onResetGame?.Invoke();
+    }
     public void ItemBought(int price)
     {
         onBuyItem?.Invoke(price);
