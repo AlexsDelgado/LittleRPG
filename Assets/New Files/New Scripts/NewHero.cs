@@ -27,7 +27,7 @@ public class NewHero : Unit
         animator = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
         LoadStats();
-        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.speed, attackSpeed);
+        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.GetSpeed(), attackSpeed);
     }
     
     //scritableObject stats
@@ -37,7 +37,7 @@ public class NewHero : Unit
         HP = UNIT.HP;
         STR = UNIT.STR;
         DEF = UNIT.DEF;
-        movimiento.speed = UNIT.SPD;
+        movimiento.SetSpeed(UNIT.SPD);
     }
 
     /*public void ChangeAttackSpeed(float change)
@@ -117,9 +117,9 @@ public class NewHero : Unit
         }
        
         
-        animator.SetFloat("Horizontal", movimiento.l_horizontal);
-        animator.SetFloat("Vertical", movimiento.l_vertical);
-        animator.SetFloat("Speed", new Vector2(movimiento.l_horizontal, movimiento.l_vertical).sqrMagnitude);
+        animator.SetFloat("Horizontal", movimiento.GetHorizontalAxis());
+        animator.SetFloat("Vertical", movimiento.GetVerticalAxis());
+        animator.SetFloat("Speed", new Vector2(movimiento.GetHorizontalAxis(), movimiento.GetVerticalAxis()).sqrMagnitude);
     }
 
     public void ShootUp()
@@ -174,8 +174,9 @@ public class NewHero : Unit
     {
         STR += _STR;
         DEF += _DEF;
-        movimiento.speed += _SPD;
+        float auxSPD = movimiento.GetSpeed() + _SPD;
+        movimiento.SetSpeed(auxSPD);
         attackSpeed -= _AS;
-        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.speed, attackSpeed);
+        _statsCanvasProvider.StatsCanvas.UpdateStats(STR, DEF, (int)movimiento.GetSpeed(), attackSpeed);
     }
 }

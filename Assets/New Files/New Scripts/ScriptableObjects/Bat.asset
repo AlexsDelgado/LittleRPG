@@ -16,8 +16,8 @@ MonoBehaviour:
   canFly: 1
   unitName: Bat
   unitLevel: 1
-  MaxHP: 10
-  HP: 10
+  MaxHP: 5
+  HP: 5
   DEF: 0
   STR: 2
   SPD: 3

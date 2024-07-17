@@ -15,7 +15,8 @@ public class NewCoin : MonoBehaviour, IPickupeable
     public void OnPickup()
     {
         NewEventHandler.Instance.CoinPickedUp(value);
-        AudioSource.PlayClipAtPoint(pickupSound, transform.position);
+        //AudioSource.PlayClipAtPoint(pickupSound, transform.position);
+        AudioManager.Instance.PlaySound(pickupSound);
         Destroy(gameObject);
     }
 
