@@ -8,7 +8,6 @@ public class UnitStat : ScriptableObject
 
     public string unitName = "defaultValue";
     public int unitLevel = 1;
-    public AudioClip hurtSound;
 
     public int MaxHP = 3;
     public int HP = 3;

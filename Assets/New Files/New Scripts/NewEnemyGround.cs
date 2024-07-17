@@ -34,7 +34,6 @@ public class NewEnemyGround : Unit
         STR = UNIT.STR;
         DEF = UNIT.DEF;
         SPD = UNIT.SPD;
-        hurtSound = UNIT.hurtSound;
     }
 
     public float GetSPD()
