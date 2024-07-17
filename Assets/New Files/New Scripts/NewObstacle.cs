@@ -9,6 +9,13 @@ public class NewObstacle : MonoBehaviour, IPickupeable
     private bool inBuyRange;
     [SerializeField] private int price;
     [SerializeField] private AudioClip groundSound;
+    
+    
+    [SerializeField] private GameObject PriceUI;
+    [SerializeField] private GameObject BuyUI;
+    [SerializeField] private GameObject ExpensiveUI;
+    
+    
     private GameObject player;
     
     //public static event Action<int> onBuyItem;
@@ -34,12 +41,42 @@ public class NewObstacle : MonoBehaviour, IPickupeable
         Destroy(gameObject);
     }
 
+    // private void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if (collision.gameObject.layer == 3)
+    //     {
+    //         player = collision.gameObject;
+    //         inBuyRange = true;
+    //     }
+    // }
+    //
+    // private void OnTriggerExit2D(Collider2D collision)
+    // {
+    //     if (collision.gameObject.layer == 3)
+    //     {
+    //         inBuyRange = false;
+    //     }
+    // }
+    //
+    
+    
+    
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 3)
         {
             player = collision.gameObject;
             inBuyRange = true;
+            PriceUI.SetActive(true);
+            if (NewGameManager.Instance.Coins < price)
+            {
+                ExpensiveUI.SetActive(true);
+            }
+            else
+            {
+                BuyUI.SetActive(true);
+            }
         }
     }
 
@@ -48,8 +85,16 @@ public class NewObstacle : MonoBehaviour, IPickupeable
         if (collision.gameObject.layer == 3)
         {
             inBuyRange = false;
+            PriceUI.SetActive(false);
+            ExpensiveUI.SetActive(false);
+            BuyUI.SetActive(false);
         }
     }
+    
+    
+    
+    
+    
     
     
     private void openNextLevel()

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
@@ -26,7 +27,8 @@ public class NewEnemyGround : Unit
     [SerializeField] private GameObject CoinDrop;
     [SerializeField] private GameObject SmallHealthDrop;
     [SerializeField] private GameObject MediumHealthDrop;
-    
+    private Vector3 scale;
+
     public void LoadStats()
     {
         MaxHP = UNIT.MaxHP;
@@ -45,15 +47,33 @@ public class NewEnemyGround : Unit
     {
         animator = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
+        Vector3 scale = transform.localScale;
         LoadStats();
     }
 
     private void Update()
     {
+       
         if (chase == true && target!=null)
+            
         {
             transform.position = Vector2.MoveTowards(transform.position,target.transform.position,Time.deltaTime*SPD);
             targetDist = Vector2.Distance(transform.position, target.transform.position);
+            if (transform.position.x < target.transform.position.x)
+            {
+                
+                //scale.x = Mathf.Abs(scale.x) * -1;
+                transform.localScale= new Vector3(4, 3, 1);
+               
+            }
+            else
+            {
+                transform.localScale= new Vector3(-4, 3, 1);
+                //scale.x = Mathf.Abs(scale.x);
+               
+            }
+
+            //transform.position = scale;
             if (targetDist > stopDist)
             {
                 chase =false;
