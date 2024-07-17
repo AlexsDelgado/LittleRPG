@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class NewHero : Unit
@@ -131,6 +132,7 @@ public class NewHero : Unit
 
     public override void Death()
     {
+        SceneManager.LoadScene("NewDefeat");
         Destroy(gameObject);
         Debug.Log("muerte jugador");
     }

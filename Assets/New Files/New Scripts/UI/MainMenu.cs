@@ -10,12 +10,16 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button quit;
     [SerializeField] private Button credits;
     [SerializeField] private Button volumen;
+    [SerializeField] private Button faq;
     [SerializeField] private Button volumenExit;
     [SerializeField] private Button creditsExit;
+    [SerializeField] private Button faqExit;
+    [SerializeField] private Button bossFight;
     
     
     [SerializeField] private GameObject creditsCanvas;
     [SerializeField] private GameObject volumeCanvas;
+    [SerializeField] private GameObject faqCanvas;
     [SerializeField] private AudioClip uiSfx;
     
     // Start is called before the first frame update
@@ -25,6 +29,8 @@ public class MainMenu : MonoBehaviour
         quit.onClick.AddListener(Quit);
         credits.onClick.AddListener(CreditCanvas);
         volumen.onClick.AddListener(VolumeCanvas);
+        bossFight.onClick.AddListener(BossCave);
+        faq.onClick.AddListener(ShowFaqCanvas);
     }
 
     public void SFXMenu()
@@ -39,6 +45,9 @@ public class MainMenu : MonoBehaviour
         quit.gameObject.SetActive(false);
         volumen.gameObject.SetActive(false);
         credits.gameObject.SetActive(false);
+        faq.gameObject.SetActive(false);
+        bossFight.gameObject.SetActive(false);
+        
     }
     public void ShowButtons()
     {
@@ -46,8 +55,17 @@ public class MainMenu : MonoBehaviour
         quit.gameObject.SetActive(true);
         volumen.gameObject.SetActive(true);
         credits.gameObject.SetActive(true); 
+        faq.gameObject.SetActive(true); 
+        bossFight.gameObject.SetActive(true); 
         
     }
+
+    public void BossCave()
+    {
+        SFXMenu();
+        SceneManager.LoadScene("NewCave");
+    }
+    
     public void VolumeCanvas()
     {
         SFXMenu();
@@ -55,6 +73,23 @@ public class MainMenu : MonoBehaviour
         volumeCanvas.SetActive(true);
         volumenExit.onClick.AddListener(VolumeCanvasExit);
         
+    }
+    
+    
+    public void ShowFaqCanvas()
+    {
+        SFXMenu();
+        HideButtons();
+        faqCanvas.SetActive(true);
+        faqExit.onClick.AddListener(FaqCanvasExit);
+        
+    }
+    public void FaqCanvasExit()
+    {
+        SFXMenu();
+        faqExit.onClick.RemoveAllListeners();
+        faqCanvas.SetActive(false);
+        ShowButtons();
     }
     public void VolumeCanvasExit()
     {

@@ -16,8 +16,9 @@ MonoBehaviour:
   canFly: 0
   unitName: Boss
   unitLevel: 1
-  MaxHP: 20
-  HP: 20
+  hurtSound: {fileID: 8300000, guid: 033fa381762df32448af5cf6c1f05f88, type: 3}
+  MaxHP: 4
+  HP: 4
   DEF: 0
-  STR: 1
+  STR: 2
   SPD: 2

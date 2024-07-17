@@ -57,10 +57,14 @@ public class NewArrow : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //GameObject aux = collision.gameObject.
-        typeEnemy = collision.gameObject.GetComponent<NewEnemyGround>();
+        typeEnemy = collision.gameObject.GetComponent<Unit>();
+        if (typeEnemy is NewBossEnemy)
+        {
+            Destroy(gameObject);
+            typeEnemy.Hurt(damage);
+        }
         if (typeEnemy is NewEnemyGround)
         {
-            Debug.Log("type enemy is");
             Destroy(gameObject);
             typeEnemy.Hurt(damage);
         }

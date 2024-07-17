@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewBossEnemy : Unit
 {
@@ -107,7 +108,7 @@ public class NewBossEnemy : Unit
         HP = HP - dmgFinal;
         if (HP <= 0)
         {
-            NewGameManager.Instance.win.Invoke();
+            SceneManager.LoadScene("NewWin");
             Destroy(gameObject);
         }
     }

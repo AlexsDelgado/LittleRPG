@@ -82138,6 +82138,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 761255131}
     m_Modifications:
+    - target: {fileID: 5188033394558163778, guid: 04033c91b9103c4489dc79c91ce5d7fd, type: 3}
+      propertyPath: m_text
+      value: (30 gold)
+      objectReference: {fileID: 0}
     - target: {fileID: 5188033394558163780, guid: 04033c91b9103c4489dc79c91ce5d7fd, type: 3}
       propertyPath: m_IsActive
       value: 0
