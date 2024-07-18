@@ -31,6 +31,8 @@ public class Scenes : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("NewMainMenu");
+        NewGameManager.Instance.ResetGame();
+        AudioManager.Instance.PlayMusic();
         //GameManager.Instance.resetGame();
 
 }

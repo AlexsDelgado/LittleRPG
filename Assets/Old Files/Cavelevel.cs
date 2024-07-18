@@ -22,7 +22,7 @@ public class Cavelevel : MonoBehaviour
         
         if (collision.gameObject.layer == 3)
         {
-            NewGameManager.Instance.LoadCave();
+            //NewGameManager.Instance.LoadCave();
             caveScene();
         
         }
@@ -33,5 +33,6 @@ public class Cavelevel : MonoBehaviour
     void caveScene()
     {
         SceneManager.LoadScene("NewCave");
+        AudioManager.Instance.PlayMusicBoss();
     }
 }

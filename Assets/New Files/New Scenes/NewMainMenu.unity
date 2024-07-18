@@ -2881,7 +2881,7 @@ RectTransform:
   m_GameObject: {fileID: 792016366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1.98}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1.98}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1740855270}
@@ -2890,7 +2890,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -128, y: -90}
-  m_SizeDelta: {x: 156.9606, y: 99.9966}
+  m_SizeDelta: {x: 270, y: 255}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792016368
 MonoBehaviour:
@@ -2912,7 +2912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0c5d4036eed3e744f8e118724a2a8a35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10c8f1899a3fcb642b40365740c757be, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3241,8 +3241,8 @@ RectTransform:
   m_GameObject: {fileID: 829846480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1.98}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.99}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1740855270}
   m_RootOrder: 6
@@ -3250,7 +3250,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 118, y: -90}
-  m_SizeDelta: {x: 156.9606, y: 99.9966}
+  m_SizeDelta: {x: 270, y: 255}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &829846482
 MonoBehaviour:
@@ -3272,7 +3272,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 068311f9f847892429ce94ea262269af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2720e40fb74dc9d40aaf6e26b5a40fd8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6171,6 +6171,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4675397281166050703, guid: b17537276a6f0234b95326de389a86a3, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675397281507424618, guid: b17537276a6f0234b95326de389a86a3, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4675397281909612044, guid: b17537276a6f0234b95326de389a86a3, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -6215,6 +6223,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4675397281909612045, guid: b17537276a6f0234b95326de389a86a3, type: 3}
+      propertyPath: bossFight
+      value: 
+      objectReference: {fileID: 8300000, guid: febfc03013b10684b980f9ee66ef9212, type: 3}
+    - target: {fileID: 4675397281909612045, guid: b17537276a6f0234b95326de389a86a3, type: 3}
+      propertyPath: environment
+      value: 
+      objectReference: {fileID: 8300000, guid: dd37a71104180b749832c9ae9d5657cc, type: 3}
     - target: {fileID: 4675397281909612046, guid: b17537276a6f0234b95326de389a86a3, type: 3}
       propertyPath: m_Name
       value: SoundManager

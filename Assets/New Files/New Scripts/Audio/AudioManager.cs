@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource, musicSource;
     public static AudioManager Instance;
+    [SerializeField] private AudioClip environment, bossFight;
     
     private void Awake()
     {
@@ -34,7 +35,14 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMusic()
     {
+        musicSource.clip = environment;
         musicSource.Play();
+    }
+
+    public void PlayMusicBoss()
+    {
+        musicSource.clip = bossFight;
+        musicSource.Play(); 
     }
     
     

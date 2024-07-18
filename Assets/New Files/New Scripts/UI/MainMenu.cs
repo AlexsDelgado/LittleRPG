@@ -63,6 +63,7 @@ public class MainMenu : MonoBehaviour
     private void BossCave()
     {
         SFXMenu();
+        AudioManager.Instance.PlayMusicBoss();
         SceneManager.LoadScene("NewCave");
     }
     
@@ -126,7 +127,7 @@ public class MainMenu : MonoBehaviour
     private void Play()
     {
         SFXMenu();
-        NewGameManager.Instance.ResetGame();
+        //NewGameManager.Instance.ResetGame();
         //AudioManager.Instance.StopMusic();
         SceneManager.LoadScene("NewOutworld");
 

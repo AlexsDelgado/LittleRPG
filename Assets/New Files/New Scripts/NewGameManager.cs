@@ -89,7 +89,7 @@ public class NewGameManager : MonoBehaviour
 
     public void LoadCave()
     {
-        cave.Invoke();
+        //cave.Invoke();
     }
 
     // private void Update()

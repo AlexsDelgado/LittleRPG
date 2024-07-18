@@ -11,6 +11,7 @@ public class NewBossEnemy : Unit
     [SerializeField] private GameObject target; 
     private float SPD;
     private float bulletSPD;
+    private AudioClip hurtClip;
     
     [SerializeField] private float chaseDist;
     [SerializeField] private float stopDist;
@@ -31,6 +32,7 @@ public class NewBossEnemy : Unit
         DEF = UNIT.DEF;
         SPD = UNIT.SPD;
         bulletSPD = 5;
+        hurtClip = UNIT.hurtSound;
     }
 
     public float GetSPD()
@@ -118,6 +120,7 @@ public class NewBossEnemy : Unit
         animator.SetTrigger("TakeHit");
         animator.SetBool("Move", false);
         int dmgFinal = calculateDamage(dmg);
+        AudioManager.Instance.PlaySound(hurtClip);
         HP = HP - dmgFinal;
         if (HP <= 0)
         {
