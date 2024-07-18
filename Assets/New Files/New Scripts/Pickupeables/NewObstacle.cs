@@ -18,7 +18,6 @@ public class NewObstacle : MonoBehaviour, IPickupeable
     
     private GameObject player;
     
-    //public static event Action<int> onBuyItem;
 
     void Update()
     {
@@ -40,26 +39,6 @@ public class NewObstacle : MonoBehaviour, IPickupeable
         AudioManager.Instance.PlaySound(groundSound);
         Destroy(gameObject);
     }
-
-    // private void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     if (collision.gameObject.layer == 3)
-    //     {
-    //         player = collision.gameObject;
-    //         inBuyRange = true;
-    //     }
-    // }
-    //
-    // private void OnTriggerExit2D(Collider2D collision)
-    // {
-    //     if (collision.gameObject.layer == 3)
-    //     {
-    //         inBuyRange = false;
-    //     }
-    // }
-    //
-    
-    
     
     
     private void OnTriggerEnter2D(Collider2D collision)

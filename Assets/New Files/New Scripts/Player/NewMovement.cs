@@ -10,7 +10,6 @@ public class NewMovement : MonoBehaviour
     [SerializeField]private float diagonalSpeedCap=0.6f;
     private float l_horizontal;
     private float l_vertical;
-    //public Transform parent;
    
     
 
@@ -18,12 +17,6 @@ public class NewMovement : MonoBehaviour
     {
          l_horizontal = Input.GetAxis("Horizontal");
          l_vertical = Input.GetAxis("Vertical");
-        //ok 1
-        //  if(l_horizontal!=0 && l_vertical!=0)
-        // { 
-        //     l_horizontal = l_horizontal/ 2;
-        //     l_vertical = l_vertical/ 2;
-        // }
         DiagonalMovement();
         transform.position += new Vector3(l_horizontal, l_vertical,0) * speed * Time.deltaTime;
     }
@@ -69,6 +62,4 @@ public class NewMovement : MonoBehaviour
             l_vertical = -diagonalSpeedCap;
         } 
     }
-
-   
 }

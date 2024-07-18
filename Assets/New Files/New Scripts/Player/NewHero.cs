@@ -41,11 +41,6 @@ public class NewHero : Unit
         movement.SetSpeed(UNIT.SPD);
         hurtSound = UNIT.hurtSound;
     }
-
-    /*public void ChangeAttackSpeed(float change)
-    {
-        attackSpeed = attackSpeed - change;
-    }*/
     
     void Update()
     {

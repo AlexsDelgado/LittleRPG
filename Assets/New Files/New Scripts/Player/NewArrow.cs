@@ -15,12 +15,8 @@ public class NewArrow : MonoBehaviour
     [SerializeField] private float lifeTime = 2f;
     private Unit typeEnemy;
     private float m_currentTime;
-
-    
-
     private int damage = 0;
-    //public LayerMask objetivo;
-    //public UnityEvent arrow = new UnityEvent();
+
 
   
 
@@ -68,19 +64,6 @@ public class NewArrow : MonoBehaviour
             Destroy(gameObject);
             typeEnemy.Hurt(damage);
         }
-        // if (collision.gameObject.GetType() == typeof(NewEnemyGround))
-        // {
-        //     Debug.Log("choco enemigo");
-        //     // Destroy(collision.gameObject);
-        //     // GameManager.Instance.MinusEnemy();
-        //     Destroy(gameObject);
-        // }
-        // if(collision.gameObject.layer == 9)
-        // {
-        //     //GameManager.Instance.BossDmg();
-        //     Destroy(gameObject);
-        //   
-        // }
     }
 }
 
